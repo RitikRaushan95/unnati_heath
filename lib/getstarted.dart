@@ -54,7 +54,18 @@ class _GetStartedState extends State<GetStarted> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        toolbarHeight: 0, // Remove top padding
+        toolbarHeight: 50, // Set the desired height for the app bar
+        flexibleSpace: Column(
+          children: [
+            SizedBox(
+              height: 50, // Set the height of the logo area
+              child: Image.asset(
+                'assets/logo.png', // Replace with the path to your logo
+                fit: BoxFit.contain,
+              ),
+            ),
+          ],
+        ),
       ),
       body: Column(
         children: [
@@ -106,17 +117,15 @@ class _GetStartedState extends State<GetStarted> {
               );
             },
             style: ElevatedButton.styleFrom(
-              backgroundColor: const Color.fromRGBO(
-                  67, 177, 75, 1.0), // Set the background color
+              backgroundColor: const Color.fromRGBO(67, 177, 75, 1.0),
               shape: RoundedRectangleBorder(
-                borderRadius:
-                    BorderRadius.circular(10.0), // Set the border radius to 10
+                borderRadius: BorderRadius.circular(10.0),
               ),
             ),
             child: const Text(
               "Get Started",
               style: TextStyle(
-                color: Colors.white, // Set the text color to white
+                color: Colors.white,
               ),
             ),
           ),

@@ -6,14 +6,24 @@ import 'package:WeCare/mybot.dart';
 import 'package:WeCare/register.dart';
 
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+  const HomeScreen({Key? key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: const Color.fromRGBO(67, 177, 75, 1.0),
+        flexibleSpace: Column(
+          children: [
+            SizedBox(
+              height: 40, // Set the height of the logo area
+              child: Image.asset(
+                'assets/logo.png',
+                fit: BoxFit.contain,
+              ),
+            ),
+          ],
+        ),
       ),
       body: SafeArea(
         child: Column(
@@ -28,7 +38,7 @@ class HomeScreen extends StatelessWidget {
                 color: const Color.fromRGBO(67, 177, 75, 1.0),
                 height: 20,
                 width: 100,
-                child: const Text('Get start'),
+                child: const Text('Get started'),
               ),
             ),
             const SizedBox(height: 50),
@@ -69,7 +79,7 @@ class HomeScreen extends StatelessWidget {
                 color: const Color.fromRGBO(67, 177, 75, 1.0),
                 height: 20,
                 width: 100,
-                child: const Text('Cahtbot'),
+                child: const Text('Chatbot'),
               ),
             ),
             const SizedBox(height: 50),
@@ -89,7 +99,7 @@ class HomeScreen extends StatelessWidget {
             const SizedBox(height: 50),
             const Center(
               child: Text(
-                "This is homescreen",
+                "This is home screen",
                 style: TextStyle(
                   fontSize: 24,
                   fontWeight: FontWeight.bold,
