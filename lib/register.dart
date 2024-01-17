@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:UnnatiHealth/loginui.dart';
+import 'package:WeCare/loginui.dart';
 
 class SignupPage extends StatefulWidget {
+  const SignupPage({super.key});
+
   @override
   _SignupPageState createState() => _SignupPageState();
 }
@@ -17,7 +19,7 @@ class _SignupPageState extends State<SignupPage> {
       backgroundColor: Colors.white,
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: Colors.white,
+        backgroundColor: const Color.fromRGBO(67, 177, 75, 1.0),
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
@@ -25,7 +27,7 @@ class _SignupPageState extends State<SignupPage> {
           icon: const Icon(
             Icons.arrow_back_ios,
             size: 20,
-            color: Color.fromRGBO(67, 177, 75, 1.0),
+            color: Colors.black87,
           ),
         ),
         actions: [
@@ -53,8 +55,8 @@ class _SignupPageState extends State<SignupPage> {
         padding: const EdgeInsets.symmetric(horizontal: 40),
         children: <Widget>[
           const SizedBox(height: 20),
-          Center(
-            child: const Text(
+          const Center(
+            child: Text(
               "Register Now",
               style: TextStyle(
                 fontSize: 25,
@@ -79,14 +81,13 @@ class _SignupPageState extends State<SignupPage> {
               inputFile(label: "Confirm Password ", obscureText: true),
               inputFile(label: "E-mail Address"),
               inputFile(label: "Mobile Number"),
-
               // Add Dropdown for selecting role
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  Text(
+                  const Text(
                     'Select your role',
-                    style: const TextStyle(
+                    style: TextStyle(
                       fontSize: 15,
                       fontWeight: FontWeight.w400,
                       color: Colors.black87,
@@ -94,7 +95,8 @@ class _SignupPageState extends State<SignupPage> {
                   ),
                   const SizedBox(height: 5),
                   Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 15, vertical: 10),
                     decoration: BoxDecoration(
                       color: const Color(0xFFF1F1F1),
                       borderRadius: BorderRadius.circular(8),
@@ -102,19 +104,19 @@ class _SignupPageState extends State<SignupPage> {
                     child: PopupMenuButton<String>(
                       itemBuilder: (BuildContext context) {
                         return <PopupMenuEntry<String>>[
-                          PopupMenuItem<String>(
+                          const PopupMenuItem<String>(
                             value: 'Doctor',
                             child: Text('Doctor'),
                           ),
-                          PopupMenuItem<String>(
+                          const PopupMenuItem<String>(
                             value: 'Family member',
                             child: Text('Family member'),
                           ),
-                          PopupMenuItem<String>(
+                          const PopupMenuItem<String>(
                             value: 'Women',
                             child: Text('Women'),
                           ),
-                          PopupMenuItem<String>(
+                          const PopupMenuItem<String>(
                             value: 'Patient',
                             child: Text('Patient'),
                           ),
@@ -143,7 +145,7 @@ class _SignupPageState extends State<SignupPage> {
             children: [
               Expanded(
                 child: MaterialButton(
-                  color: Color.fromRGBO(67, 177, 75, 1.0),
+                  color: const Color.fromRGBO(67, 177, 75, 1.0),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),
@@ -240,7 +242,7 @@ Widget inputFile({label, obscureText = false}) {
 }
 
 void main() {
-  runApp(MaterialApp(
+  runApp(const MaterialApp(
     home: SignupPage(),
   ));
 }

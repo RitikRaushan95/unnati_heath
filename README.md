@@ -1,6 +1,7 @@
-# unnati_heath
+# WeCare
 
-A new Flutter project.
+Healthcare System Project.
+"WECARE", a revolutionary healthcare project streamlining patient care.
 
 ## Getting Started
 
