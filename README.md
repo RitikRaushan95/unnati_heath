@@ -1,6 +1,7 @@
 # WeCare
 
-A new Flutter project.
+A new Healthcare project.
+"WECARE", a revolutionary healthcare project streamlining patient care.
 
 ## Getting Started
 
