@@ -1,14 +1,11 @@
-import 'package:UnnatiHealth/homeScreen.dart';
-import 'package:firebase_core/firebase_core.dart';
+import 'package:WeCare/homeScreen.dart';
+import 'package:WeCare/register.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:UnnatiHealth/homeScreen.dart';
-import 'package:UnnatiHealth/loginui.dart';
-import 'package:UnnatiHealth/register_screen.dart';
 
-void main() 
+void main()
 //async
- {
+{
   //WidgetsFlutterBinding.ensureInitialized();
   //await Firebase.initializeApp();
   runApp(const MyApp());
@@ -25,12 +22,12 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home:
-      //LoginUi()
-      HomeScreen()
-      // LoginScreen(),
-    );
+        debugShowCheckedModeBanner: false,
+        home:
+            //LoginUi()
+            HomeScreen()
+        // LoginScreen(),
+        );
   }
 }
 
@@ -198,7 +195,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => const RegisterScreen(),
+                            builder: (context) => const SignupPage(),
                           ),
                         );
                       },

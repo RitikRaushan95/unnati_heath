@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:UnnatiHealth/register.dart';
+import 'package:WeCare/register.dart';
 
 class LoginUi extends StatefulWidget {
   const LoginUi({super.key});
@@ -10,6 +10,7 @@ class LoginUi extends StatefulWidget {
 
 class _LoginUiState extends State<LoginUi> {
   bool rememberMe = false;
+  bool obscureText = true;
 
   @override
   Widget build(BuildContext context) {
@@ -81,18 +82,36 @@ class _LoginUiState extends State<LoginUi> {
                     padding: const EdgeInsets.symmetric(
                       horizontal: 15,
                     ),
-                    child: TextFormField(
-                      // controller: password,
-                      decoration: const InputDecoration(
-                        border: InputBorder.none,
-                        hintText: 'Password',
-                      ),
+                    child: Stack(
+                      alignment: Alignment.centerRight,
+                      children: [
+                        TextFormField(
+                          obscureText: obscureText,
+                          decoration: const InputDecoration(
+                            border: InputBorder.none,
+                            hintText: 'Password',
+                          ),
+                        ),
+                        IconButton(
+                          onPressed: () {
+                            setState(() {
+                              obscureText = !obscureText;
+                            });
+                          },
+                          icon: Icon(
+                            obscureText
+                                ? Icons.visibility
+                                : Icons.visibility_off,
+                            color: Colors.grey,
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                 ),
                 const SizedBox(height: 10),
-                // Remember me checkbox
-              Row(
+
+                Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Row(
@@ -104,7 +123,9 @@ class _LoginUiState extends State<LoginUi> {
                               rememberMe = value ?? false;
                             });
                           },
-                           activeColor: rememberMe ? Color.fromRGBO(67, 177, 75, 1.0): null,
+                          activeColor: rememberMe
+                              ? const Color.fromRGBO(67, 177, 75, 1.0)
+                              : null,
                         ),
                         const Text("Remember me"),
                       ],
@@ -123,20 +144,19 @@ class _LoginUiState extends State<LoginUi> {
                   ],
                 ),
                 const SizedBox(height: 20),
-              
+
                 Row(
                   children: [
                     Expanded(
                       child: MaterialButton(
-                        color: Color.fromRGBO(67, 177, 75, 1.0),
+                        color: const Color.fromRGBO(67, 177, 75, 1.0),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10),
                         ),
                         onPressed: () {
                           //call login function here
-                         // register(context);
+                          // register(context);
                         },
-                        
                         child: const Padding(
                           padding: EdgeInsets.all(8),
                           child: Text(
@@ -160,10 +180,10 @@ class _LoginUiState extends State<LoginUi> {
                     const Text("Don't have account ?"),
                     TextButton(
                       onPressed: () {
-                       Navigator.push(
-                         context,
+                        Navigator.push(
+                          context,
                           MaterialPageRoute(
-                           builder: (context) =>  SignupPage(),
+                            builder: (context) => const SignupPage(),
                           ),
                         );
                       },

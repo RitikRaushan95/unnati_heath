@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'dart:html';
 
 import 'package:dash_chat_2/dash_chat_2.dart';
 import 'package:flutter/material.dart';
@@ -40,7 +39,7 @@ class _chatbotState extends State<chatbot> {
         .then((value) {
       if (value.statusCode == 200) {
         var result = jsonDecode(value.body);
-        print(result['candidates'][0]['content']['parts'][0]['text']);
+        //  print(result['candidates'][0]['content']['parts'][0]['text']);
 
         ChatMessage m1 = ChatMessage(
             text: result['candidates'][0]['content']['parts'][0]['text'],
@@ -59,22 +58,21 @@ class _chatbotState extends State<chatbot> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-       appBar: AppBar(
-        elevation: 0,
-        leading: IconButton(
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          icon: const Icon(
-            Icons.arrow_back_ios,
-            size: 20,
-            color: Colors.black,
+        appBar: AppBar(
+          elevation: 0,
+          leading: IconButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            icon: const Icon(
+              Icons.arrow_back_ios,
+              size: 20,
+              color: Colors.black,
+            ),
           ),
+          backgroundColor: const Color.fromRGBO(67, 177, 75, 1.0),
+          title: const Text('Chat Support'),
         ),
-        backgroundColor: const Color.fromRGBO(67, 177, 75, 1.0),
-        title: Text('Chat Support'),
-      ),
-        
         body: DashChat(
             typingUsers: typing,
             currentUser: myself,
