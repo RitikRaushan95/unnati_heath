@@ -1,7 +1,6 @@
 # WeCare
 
-Healthcare System Project.
-"WECARE", a revolutionary healthcare project streamlining patient care.
+A new Flutter project.
 
 ## Getting Started
 
