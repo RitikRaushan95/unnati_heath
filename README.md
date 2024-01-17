@@ -1,7 +1,6 @@
 # WeCare
 
-A new Healthcare project.
-"WECARE", a revolutionary healthcare project streamlining patient care.
+"WeCare", a revolutionary healthcare project streamlining patient care.
 
 ## Getting Started
 
