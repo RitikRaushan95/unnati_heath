@@ -33,9 +33,9 @@ class _GetStartedState extends State<GetStarted> {
   int _currentPage = 0;
 
   List<String> healthcareImages = [
-    'assets/healthcare_image1.jpg',
-    'assets/healthcare_image2.jpg',
-    'assets/healthcare_image3.jpg',
+    'assets/healthcare_image1.png',
+    'assets/healthcare_image2.png',
+    'assets/healthcare_image3.png',
   ];
 
   List<String> imageDescriptions = [
@@ -54,20 +54,24 @@ class _GetStartedState extends State<GetStarted> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        toolbarHeight: 50, // Set the desired height for the app bar
+        toolbarHeight: 60, // Decrease the toolbar height
         flexibleSpace: Column(
           children: [
             SizedBox(
-              height: 50, // Set the height of the logo area
+              height: 10, // Shift the logo a little above
+            ),
+            SizedBox(
+              height: 40, // Decrease the height of the logo area
               child: Image.asset(
-                'assets/logo.png', // Replace with the path to your logo
+                'assets/logo.png',
                 fit: BoxFit.contain,
               ),
             ),
           ],
         ),
       ),
-      body: Column(
+      body: ListView(
+        physics: ClampingScrollPhysics(),
         children: [
           CarouselSlider(
             options: CarouselOptions(
@@ -167,10 +171,15 @@ class CarouselItem extends StatelessWidget {
             height: 300.0,
             child: ClipRRect(
               borderRadius: BorderRadius.circular(8.0),
-              child: Image.network(
-                imageUrl,
-                fit: BoxFit.cover,
-              ),
+              child: imageUrl.startsWith('http')
+                  ? Image.network(
+                      imageUrl,
+                      fit: BoxFit.cover,
+                    )
+                  : Image.asset(
+                      imageUrl,
+                      fit: BoxFit.cover,
+                    ),
             ),
           ),
         );
