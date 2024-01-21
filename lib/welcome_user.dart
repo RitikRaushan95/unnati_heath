@@ -160,7 +160,6 @@ class MyHomePage extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 16),
-
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
@@ -170,7 +169,6 @@ class MyHomePage extends StatelessWidget {
                   _buildBox('assets/cart.png', 'Stores'),
                 ],
               ),
-
               const Padding(
                 padding: EdgeInsets.all(10),
                 child: Text(
@@ -178,7 +176,6 @@ class MyHomePage extends StatelessWidget {
                   style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
                 ),
               ),
-
               Container(
                 margin: const EdgeInsets.symmetric(horizontal: 16),
                 padding: const EdgeInsets.all(8),
@@ -194,7 +191,6 @@ class MyHomePage extends StatelessWidget {
                   ],
                 ),
               ),
-
               const Padding(
                 padding: EdgeInsets.all(10),
                 child: Text(
@@ -202,7 +198,6 @@ class MyHomePage extends StatelessWidget {
                   style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
                 ),
               ),
-
               Container(
                 padding: const EdgeInsets.all(16),
                 margin: const EdgeInsets.symmetric(horizontal: 16),
@@ -258,7 +253,7 @@ class MyHomePage extends StatelessWidget {
                                 size: 20,
                                 color: Colors.black,
                               ),
-                              const SizedBox(width: 8),
+                              SizedBox(width: 8),
                               Text(
                                 "Wednesday, 3rd Jan",
                                 style: TextStyle(
@@ -274,7 +269,7 @@ class MyHomePage extends StatelessWidget {
                                 size: 20,
                                 color: Colors.black,
                               ),
-                              const SizedBox(width: 8),
+                              SizedBox(width: 8),
                               Text(
                                 "7:00 PM",
                                 style: TextStyle(
@@ -288,8 +283,6 @@ class MyHomePage extends StatelessWidget {
                   ],
                 ),
               ),
-
-              // more widgets here for  UI
             ],
           ),
         ),

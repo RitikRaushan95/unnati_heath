@@ -81,7 +81,6 @@ class _SignupPageState extends State<SignupPage> {
               inputFile(label: "Confirm Password ", obscureText: true),
               inputFile(label: "E-mail Address"),
               inputFile(label: "Mobile Number"),
-              // Add Dropdown for selecting role
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
@@ -204,7 +203,6 @@ class _SignupPageState extends State<SignupPage> {
   }
 }
 
-// Widget for text field
 Widget inputFile({label, obscureText = false}) {
   return Column(
     crossAxisAlignment: CrossAxisAlignment.start,

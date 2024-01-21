@@ -32,7 +32,7 @@ class HomeScreen extends StatelessWidget {
         ),
       ),
       body: SafeArea(
-        bottom: false, // Set this to false to prevent bottom overflow
+        bottom: false,
         child: Padding(
           padding:
               EdgeInsets.only(bottom: MediaQuery.of(context).padding.bottom),

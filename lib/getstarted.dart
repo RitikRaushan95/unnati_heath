@@ -54,14 +54,14 @@ class _GetStartedState extends State<GetStarted> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        toolbarHeight: 60, // Decrease the toolbar height
+        toolbarHeight: 60,
         flexibleSpace: Column(
           children: [
-            SizedBox(
-              height: 10, // Shift the logo a little above
+            const SizedBox(
+              height: 20,
             ),
             SizedBox(
-              height: 40, // Decrease the height of the logo area
+              height: 40,
               child: Image.asset(
                 'assets/logo.png',
                 fit: BoxFit.contain,
@@ -71,7 +71,7 @@ class _GetStartedState extends State<GetStarted> {
         ),
       ),
       body: ListView(
-        physics: ClampingScrollPhysics(),
+        physics: const ClampingScrollPhysics(),
         children: [
           CarouselSlider(
             options: CarouselOptions(
