@@ -1,6 +1,6 @@
 import 'package:WeCare/Welcome.dart';
 import 'package:WeCare/graph.dart';
-import 'package:WeCare/welcome_user.dart';
+//import 'package:WeCare/welcome_user.dart';
 import 'package:flutter/material.dart';
 import 'package:WeCare/getstarted.dart';
 import 'package:WeCare/loginui.dart';
