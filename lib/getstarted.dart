@@ -140,7 +140,7 @@ class _GetStartedState extends State<GetStarted> {
 
   Widget buildDot(int index) {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: EdgeInsets.all(8.0),
       child: Container(
         width: 8,
         height: 8,
@@ -165,7 +165,7 @@ class CarouselItem extends StatelessWidget {
     return Builder(
       builder: (BuildContext context) {
         return Card(
-          margin: const EdgeInsets.all(8.0),
+          margin: EdgeInsets.all(8.0),
           child: SizedBox(
             width: MediaQuery.of(context).size.width - 16.0,
             height: 300.0,

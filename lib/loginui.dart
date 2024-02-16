@@ -18,7 +18,7 @@ class _LoginUiState extends State<LoginUi> {
       resizeToAvoidBottomInset: false,
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.symmetric(
+          padding: EdgeInsets.symmetric(
             horizontal: 20,
           ),
           child: SingleChildScrollView(
@@ -59,7 +59,7 @@ class _LoginUiState extends State<LoginUi> {
                     borderRadius: BorderRadius.circular(8),
                   ),
                   child: Padding(
-                    padding: const EdgeInsets.symmetric(
+                    padding: EdgeInsets.symmetric(
                       horizontal: 15,
                     ),
                     child: TextFormField(
@@ -79,7 +79,7 @@ class _LoginUiState extends State<LoginUi> {
                     borderRadius: BorderRadius.circular(8),
                   ),
                   child: Padding(
-                    padding: const EdgeInsets.symmetric(
+                    padding: EdgeInsets.symmetric(
                       horizontal: 15,
                     ),
                     child: Stack(
@@ -157,7 +157,7 @@ class _LoginUiState extends State<LoginUi> {
                           //call login function here
                           // register(context);
                         },
-                        child: const Padding(
+                        child: Padding(
                           padding: EdgeInsets.all(8),
                           child: Text(
                             "Sign in",

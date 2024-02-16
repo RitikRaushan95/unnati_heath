@@ -30,6 +30,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  sliding_up_panel: ^2.0.0+1
+  fl_chart: ^0.36.0
   faker: ^2.1.0
   carousel_slider: ^4.0.0
  # flutter_dialogflow: ^0.8.1
@@ -49,6 +51,7 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  carousel_slider: ^4.2.1
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is

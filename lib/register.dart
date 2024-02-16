@@ -32,7 +32,7 @@ class _SignupPageState extends State<SignupPage> {
         ),
         actions: [
           Padding(
-            padding: const EdgeInsets.only(right: 16.0),
+            padding: EdgeInsets.only(right: 16.0),
             child: GestureDetector(
               onTap: () {
                 // Handle login action here
@@ -52,7 +52,7 @@ class _SignupPageState extends State<SignupPage> {
         systemOverlayStyle: SystemUiOverlayStyle.dark,
       ),
       body: ListView(
-        padding: const EdgeInsets.symmetric(horizontal: 40),
+        padding: EdgeInsets.symmetric(horizontal: 40),
         children: <Widget>[
           const SizedBox(height: 20),
           const Center(
@@ -94,8 +94,7 @@ class _SignupPageState extends State<SignupPage> {
                   ),
                   const SizedBox(height: 5),
                   Container(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 15, vertical: 10),
+                    padding: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
                     decoration: BoxDecoration(
                       color: const Color(0xFFF1F1F1),
                       borderRadius: BorderRadius.circular(8),
@@ -152,7 +151,7 @@ class _SignupPageState extends State<SignupPage> {
                     //call register function here
                     // register(context);
                   },
-                  child: const Padding(
+                  child: Padding(
                     padding: EdgeInsets.all(8),
                     child: Text(
                       "Register",
@@ -222,7 +221,7 @@ Widget inputFile({label, obscureText = false}) {
           borderRadius: BorderRadius.circular(8),
         ),
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 15),
+          padding: EdgeInsets.symmetric(horizontal: 15),
           child: TextFormField(
             obscureText: obscureText,
             style: const TextStyle(fontSize: 14),
