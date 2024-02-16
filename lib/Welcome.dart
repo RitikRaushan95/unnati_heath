@@ -1,3 +1,5 @@
+import 'package:WeCare/loginui.dart';
+import 'package:WeCare/recommendations.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
 import 'dart:convert';
@@ -212,7 +214,12 @@ class _MyHomePageState extends State<MyHomePage> {
               ListTile(
                 title: const Text('Logout'),
                 onTap: () {
-                  // Add logic for Logout
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const LoginUi(),
+                    ),
+                  );
                 },
               ),
             ],
@@ -442,30 +449,49 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   Widget _buildBox(String imagePath, String text) {
-    return Container(
-      width: 70,
-      height: 70,
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(10),
-        border: Border.all(
-          color: Colors.white,
+    return MouseRegion(
+      cursor: SystemMouseCursors.click,
+      child: GestureDetector(
+        onTap: () {
+          // Navigate to the desired page when the image is tapped
+          if (imagePath == 'assets/doctor.png') {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => Recomend()),
+            );
+          } else if (imagePath == 'assets/cart.png') {
+            // Navigator.push(
+            //   context,
+            //   MaterialPageRoute(builder: (context) => StoresPage()),
+            // );
+          }
+        },
+        child: Container(
+          width: 70,
+          height: 70,
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(10),
+            border: Border.all(
+              color: Colors.white,
+            ),
+          ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Image.asset(
+                imagePath,
+                width: 40,
+                height: 40,
+              ),
+              const SizedBox(height: 8),
+              Text(
+                text,
+                style: const TextStyle(fontSize: 12),
+              ),
+            ],
+          ),
         ),
-      ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Image.asset(
-            imagePath,
-            width: 40,
-            height: 40,
-          ),
-          const SizedBox(height: 8),
-          Text(
-            text,
-            style: const TextStyle(fontSize: 12),
-          ),
-        ],
       ),
     );
   }
