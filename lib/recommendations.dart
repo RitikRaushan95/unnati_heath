@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(recomend());
+  runApp(Recomend());
 }
 
-class recomend extends StatelessWidget {
+class Recomend extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -14,84 +14,180 @@ class recomend extends StatelessWidget {
       ),
       home: Scaffold(
         appBar: AppBar(
-          elevation: 0, // Remove shadow
+          elevation: 0,
           title: Padding(
-            padding: EdgeInsets.only(top: 20), // Add vertical space at the top
+            padding: EdgeInsets.only(top: 22),
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(width: 16), // Adding space at the beginning
+                SizedBox(width: 30),
                 Container(
                   width: 40,
                   height: 40,
                   decoration: const BoxDecoration(
                     shape: BoxShape.circle,
-                    color: Colors
-                        .grey, // you can change the background color of the circle here
+                    color: Colors.grey,
                   ),
                   child: const CircleAvatar(
                     backgroundImage: AssetImage("assets/profile_image.png"),
                     radius: 20,
                   ),
                 ),
-                const SizedBox(width: 10),
+                const SizedBox(width: 20),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     const Text(
                       'Welcome',
-                      style: TextStyle(fontSize: 20),
+                      style: TextStyle(fontSize: 15),
                     ),
                     const Text(
                       'Aastha',
-                      style:
-                          TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                      style: TextStyle(
+                        fontSize: 15,
+                      ),
                     ),
                   ],
                 ),
                 const Spacer(),
                 Row(
                   children: const [
+                    Icon(Icons.location_on, size: 20),
                     Text(
                       'Patna, Bihar',
                       style: TextStyle(fontSize: 16),
                     ),
-                    SizedBox(width: 5),
-                    Icon(Icons.location_on, size: 30),
-                    SizedBox(width: 16), // Adding space at the end
+                    SizedBox(width: 30),
+                    SizedBox(width: 16),
                   ],
                 ),
               ],
             ),
           ),
           bottom: PreferredSize(
-            preferredSize:
-                Size.fromHeight(60), // Set the height of the bottom widget
+            preferredSize: Size.fromHeight(100),
             child: Padding(
-              padding: EdgeInsets.symmetric(
-                  horizontal: 8,
-                  vertical: 8), // Adjust horizontal padding to decrease width
+              padding: EdgeInsets.symmetric(horizontal: 50, vertical: 10),
               child: Container(
-                padding: EdgeInsets.symmetric(
-                    horizontal: 12), // Adjust horizontal padding here
+                padding: EdgeInsets.symmetric(horizontal: 12),
                 decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(10),
                 ),
-                child: TextField(
-                  decoration: InputDecoration(
-                    hintText: 'Search doctor',
-                    border: InputBorder.none,
-                  ),
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: TextField(
+                        decoration: InputDecoration(
+                          hintText: 'Search doctor',
+                          border: InputBorder.none,
+                          suffixIcon: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              IconButton(
+                                icon: Icon(Icons.filter_list),
+                                onPressed: () {
+                                  // Add your filter action here
+                                },
+                              ),
+                              IconButton(
+                                icon: Icon(Icons.search),
+                                onPressed: () {
+                                  // Add your search action here
+                                },
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
               ),
             ),
           ),
         ),
-        body: const Center(
-          child: Text("Body Content"),
+        body: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            SizedBox(height: 20), // Adding space below the app bar
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 55),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'Recommendations',
+                    style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+                  ),
+                  SizedBox(height: 20),
+                  _buildRecommendationItem(
+                      "Dr Olivia Wilson\nconsultant-physiotheraphy",
+                      "assets/profile_image1.png",
+                      4),
+                  SizedBox(height: 20),
+                  _buildRecommendationItem(
+                      "Dr. Jonathan Patterson\nconsultant-Dentist",
+                      "assets/profile_image2.png",
+                      3),
+                  SizedBox(height: 20),
+                  _buildRecommendationItem(
+                      "Dr. Mathur Chande\nconsultant-Internal Medicine",
+                      "assets/profile_image3.png",
+                      5),
+                  SizedBox(height: 20),
+                  _buildRecommendationItem(
+                      "Dr. Manmohan Singh\nconsultant-surgeon",
+                      "assets/profile_image4.png",
+                      2),
+                ],
+              ),
+            ),
+            SizedBox(
+                height:
+                    20), // Adding space between the containers and body content
+            Center(
+              child: Text("Body Content"),
+            ),
+          ],
         ),
       ),
+    );
+  }
+
+  Widget _buildRecommendationItem(String name, String imagePath, int rating) {
+    return Row(
+      children: [
+        SizedBox(width: 20),
+        Container(
+          width: 60,
+          height: 60,
+          decoration: BoxDecoration(
+            shape: BoxShape.circle,
+            color: Colors.grey,
+          ),
+          child: CircleAvatar(
+            backgroundImage: AssetImage(imagePath),
+            radius: 30,
+          ),
+        ),
+        SizedBox(width: 20),
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              name,
+              style: TextStyle(fontSize: 15),
+            ),
+            Row(
+              children: List.generate(
+                rating,
+                (index) => Icon(Icons.star, color: Colors.yellow, size: 20),
+              ),
+            ),
+          ],
+        ),
+      ],
     );
   }
 }
