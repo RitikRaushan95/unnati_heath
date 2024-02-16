@@ -1,3 +1,4 @@
+import 'package:WeCare/Welcome.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -20,7 +21,18 @@ class Recomend extends StatelessWidget {
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(width: 30),
+                IconButton(
+                  icon: Icon(Icons.arrow_back),
+                  onPressed: () {
+                    print(
+                        "Back button pressed"); // Check if this message is printed
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => WelcomeUser()),
+                    );
+                  },
+                ),
+                SizedBox(width: 5),
                 Container(
                   width: 40,
                   height: 40,
