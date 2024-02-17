@@ -1,3 +1,4 @@
+import 'package:WeCare/appointment.dart';
 import 'package:WeCare/recommendations.dart';
 import 'package:flutter/material.dart';
 
@@ -214,8 +215,8 @@ class _AvailabilityBodyState extends State<AvailabilityBody> {
               SizedBox(height: 10), // Reduce space after divider
               _buildDoctorRecommendationItem(
                 "Dr Aditi Wats",
-                "consultant-physiotheraphy",
-                "assets/profile_image1.png",
+                "consultant-Gynecologist",
+                "assets/profile_image5.png",
                 4,
               ), // Second doctor container
               SizedBox(height: 10), // Reduce space before time rows
@@ -287,7 +288,12 @@ class _AvailabilityBodyState extends State<AvailabilityBody> {
         SizedBox(width: 10),
         ElevatedButton(
           onPressed: () {
-            // Add your book action here
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => Appointment(),
+              ),
+            );
           },
           child: Text('Book', style: TextStyle(color: Colors.black)),
           style: ButtonStyle(
