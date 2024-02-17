@@ -30,9 +30,9 @@ class _AppointmentState extends State<Appointment> {
           onChanged: onChanged,
           visualDensity: VisualDensity.compact,
           shape: CircleBorder(),
-          checkColor: Colors.green,
-          activeColor:
-              Colors.green, // Change the color of the checkbox when selected
+          checkColor: Color.fromARGB(255, 112, 238, 119),
+          activeColor: Color.fromARGB(255, 112, 238,
+              119), // Change the color of the checkbox when selected
         ),
       ],
     );
@@ -44,7 +44,7 @@ class _AppointmentState extends State<Appointment> {
       title: 'Full Width Image',
       theme: ThemeData(
         appBarTheme: AppBarTheme(
-          backgroundColor: Colors.green,
+          backgroundColor: Color.fromARGB(255, 112, 238, 119),
         ),
         bottomNavigationBarTheme: BottomNavigationBarThemeData(
           backgroundColor:
@@ -89,7 +89,9 @@ class _AppointmentState extends State<Appointment> {
                     SizedBox(height: 5),
                     Row(
                       children: [
-                        Icon(Icons.location_on, color: Colors.green, size: 16),
+                        Icon(Icons.location_on,
+                            color: Color.fromARGB(255, 112, 238, 119),
+                            size: 16),
                         SizedBox(width: 5),
                         Text(
                           'Danapur, Patna, Bihar',
@@ -109,7 +111,7 @@ class _AppointmentState extends State<Appointment> {
                         Container(
                           padding: EdgeInsets.all(5),
                           decoration: BoxDecoration(
-                            color: Colors.green,
+                            color: Color.fromARGB(255, 112, 238, 119),
                             borderRadius: BorderRadius.circular(5),
                           ),
                           child: Text(
@@ -222,21 +224,21 @@ class _AppointmentState extends State<Appointment> {
                           height: 2,
                           width: MediaQuery.of(context).size.width / 3.5,
                           color: _selectedText == 'Issues'
-                              ? Colors.green
+                              ? Color.fromARGB(255, 112, 238, 119)
                               : Colors.transparent,
                         ),
                         Container(
                           height: 2,
                           width: MediaQuery.of(context).size.width / 3.5,
                           color: _selectedText == 'Prescription'
-                              ? Colors.green
+                              ? Color.fromARGB(255, 112, 238, 119)
                               : Colors.transparent,
                         ),
                         Container(
                           height: 2,
                           width: MediaQuery.of(context).size.width / 3.5,
                           color: _selectedText == 'Review'
-                              ? Colors.green
+                              ? Color.fromARGB(255, 112, 238, 119)
                               : Colors.transparent,
                         ),
                       ],
@@ -287,7 +289,7 @@ class _AppointmentState extends State<Appointment> {
           ),
         ),
         bottomNavigationBar: BottomAppBar(
-          color: Colors.white, // Set bottom navigation bar color to white
+          color: Colors.white,
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
             child: ElevatedButton(
@@ -295,15 +297,13 @@ class _AppointmentState extends State<Appointment> {
               child: Text(
                 'Book Appointment',
                 style: TextStyle(
-                  color: Colors.black, // Set text color to black
-                  fontSize: 18, // Increase text size
+                  color: Colors.black,
+                  fontSize: 18,
                 ),
               ),
               style: ElevatedButton.styleFrom(
-                backgroundColor:
-                    Colors.green, // Set button background color to green
-                padding: EdgeInsets.symmetric(
-                    vertical: 15), // Increase button padding
+                backgroundColor: Color.fromARGB(255, 112, 238, 119),
+                padding: EdgeInsets.symmetric(vertical: 15),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(10),
                 ),
@@ -326,7 +326,9 @@ class _AppointmentState extends State<Appointment> {
         padding: EdgeInsets.all(10),
         decoration: BoxDecoration(
           border: Border.all(
-              color: _selectedText == text ? Colors.green : Colors.grey),
+              color: _selectedText == text
+                  ? Color.fromARGB(255, 112, 238, 119)
+                  : Colors.grey),
           borderRadius: BorderRadius.circular(5),
         ),
         child: Text(

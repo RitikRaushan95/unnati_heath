@@ -1,4 +1,5 @@
 import 'package:WeCare/loginui.dart';
+import 'package:WeCare/medicine.dart';
 import 'package:WeCare/recommendations.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
@@ -120,15 +121,15 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
         ),
         drawer: Drawer(
-          // ignore: sort_child_properties_last
+          // Adjusted padding to fix bottom overflow
           child: ListView(
-            padding: EdgeInsets.only(top: 0),
+            padding: EdgeInsets.zero,
             children: <Widget>[
               SizedBox(
-                height: 100,
+                height: 110,
                 child: DrawerHeader(
                   decoration: const BoxDecoration(
-                    color: Colors.green,
+                    color: Color.fromARGB(255, 112, 238, 119),
                   ),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -227,6 +228,7 @@ class _MyHomePageState extends State<MyHomePage> {
           width: MediaQuery.of(context).size.width * 0.5,
         ),
         body: SingleChildScrollView(
+          padding: EdgeInsets.only(bottom: 10), // Adjusted padding
           child: Container(
             color: _isDarkMode
                 ? Colors.black
@@ -394,7 +396,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
                 const SizedBox(height: 16),
                 Padding(
-                  padding: EdgeInsets.all(10),
+                  padding: EdgeInsets.all(25),
                   child: Text(
                     "Appointments",
                     style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
@@ -402,7 +404,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
                 CarouselSlider(
                   options: CarouselOptions(
-                    aspectRatio: 55 / 10,
+                    aspectRatio: 75 / 20,
                     enableInfiniteScroll: true,
                     autoPlay: true,
                     autoPlayInterval: const Duration(seconds: 2),
@@ -412,13 +414,14 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   items: _buildAppointmentSlides(),
                 ),
+                const SizedBox(height: 10),
               ],
             ),
           ),
         ),
         bottomNavigationBar: BottomNavigationBar(
           type: BottomNavigationBarType.fixed,
-          backgroundColor: Colors.green,
+          backgroundColor: Color.fromARGB(255, 112, 238, 119),
           items: const [
             BottomNavigationBarItem(
               icon: Icon(Icons.home),
@@ -459,10 +462,10 @@ class _MyHomePageState extends State<MyHomePage> {
               MaterialPageRoute(builder: (context) => Recomend()),
             );
           } else if (imagePath == 'assets/cart.png') {
-            // Navigator.push(
-            //   context,
-            //   MaterialPageRoute(builder: (context) => StoresPage()),
-            // );
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => Shop()),
+            );
           }
         },
         child: Container(
@@ -498,7 +501,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget _buildChecklistItem(
       String itemName, String time, bool isChecked, Function(bool)? onChanged) {
     return Padding(
-      padding: EdgeInsets.symmetric(vertical: 8),
+      padding: EdgeInsets.symmetric(vertical: 10),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -516,7 +519,7 @@ class _MyHomePageState extends State<MyHomePage> {
             onChanged: onChanged != null
                 ? (bool? value) => onChanged(value ?? false)
                 : null,
-            activeColor: Colors.green,
+            activeColor: Color.fromARGB(255, 112, 238, 119),
             shape: const CircleBorder(),
           ),
         ],
@@ -552,7 +555,7 @@ class _MyHomePageState extends State<MyHomePage> {
     List<Widget> appointmentCards = appointments.map((appointment) {
       return Container(
         padding: EdgeInsets.all(16),
-        margin: EdgeInsets.symmetric(horizontal: 16),
+        margin: EdgeInsets.symmetric(horizontal: 10),
         height: 88,
         decoration: BoxDecoration(
           color: Colors.white,
@@ -580,13 +583,13 @@ class _MyHomePageState extends State<MyHomePage> {
                     appointment['name']!,
                     style: const TextStyle(
                       color: Color.fromRGBO(76, 175, 80, 1),
-                      fontSize: 15,
+                      fontSize: 10,
                     ),
                   ),
                   Text(
                     appointment['specialization']!,
                     style: const TextStyle(
-                      color: Colors.green,
+                      color: Color.fromARGB(255, 112, 238, 119),
                       fontSize: 10,
                     ),
                   ),

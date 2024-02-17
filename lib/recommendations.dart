@@ -188,7 +188,7 @@ class Recomend extends StatelessWidget {
         ),
         bottomNavigationBar: BottomNavigationBar(
           type: BottomNavigationBarType.fixed,
-          backgroundColor: Colors.green,
+          backgroundColor: Color.fromARGB(255, 112, 238, 119),
           items: const [
             BottomNavigationBarItem(
               icon: Icon(Icons.home),
