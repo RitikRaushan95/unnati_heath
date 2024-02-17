@@ -1,3 +1,4 @@
+import 'package:WeCare/Welcome.dart';
 import 'package:flutter/material.dart';
 import 'package:WeCare/register.dart';
 
@@ -154,8 +155,12 @@ class _LoginUiState extends State<LoginUi> {
                           borderRadius: BorderRadius.circular(10),
                         ),
                         onPressed: () {
-                          //call login function here
-                          // register(context);
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => WelcomeUser(),
+                            ),
+                          );
                         },
                         child: Padding(
                           padding: EdgeInsets.all(8),

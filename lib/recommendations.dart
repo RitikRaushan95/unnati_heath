@@ -24,8 +24,6 @@ class Recomend extends StatelessWidget {
                 IconButton(
                   icon: Icon(Icons.arrow_back),
                   onPressed: () {
-                    print(
-                        "Back button pressed"); // Check if this message is printed
                     Navigator.push(
                       context,
                       MaterialPageRoute(builder: (context) => WelcomeUser()),
@@ -158,8 +156,29 @@ class Recomend extends StatelessWidget {
             SizedBox(
                 height:
                     20), // Adding space between the containers and body content
-            Center(
-              child: Text("Body Content"),
+            Padding(
+              padding: EdgeInsets.only(left: 55, top: 10),
+              child: Row(
+                children: [
+                  Text(
+                    'See availability',
+                    style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+                  ),
+                  SizedBox(width: 120),
+                  ElevatedButton(
+                    onPressed: () {
+                      // Add your availability action here
+                    },
+                    child: Text('Click Here'),
+                    style: ButtonStyle(
+                      backgroundColor:
+                          MaterialStateProperty.all<Color>(Colors.green),
+                      foregroundColor:
+                          MaterialStateProperty.all<Color>(Colors.black),
+                    ),
+                  ),
+                ],
+              ),
             ),
           ],
         ),
