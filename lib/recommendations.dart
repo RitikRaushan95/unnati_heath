@@ -1,4 +1,5 @@
 import 'package:WeCare/Welcome.dart';
+import 'package:WeCare/availability.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -167,12 +168,17 @@ class Recomend extends StatelessWidget {
                   SizedBox(width: 120),
                   ElevatedButton(
                     onPressed: () {
-                      // Add your availability action here
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => Availability(),
+                        ),
+                      );
                     },
                     child: Text('Click Here'),
                     style: ButtonStyle(
-                      backgroundColor:
-                          MaterialStateProperty.all<Color>(Colors.green),
+                      backgroundColor: MaterialStateProperty.all<Color>(
+                          Color.fromRGBO(67, 177, 75, 1.0)),
                       foregroundColor:
                           MaterialStateProperty.all<Color>(Colors.black),
                     ),

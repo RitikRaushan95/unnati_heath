@@ -453,7 +453,6 @@ class _MyHomePageState extends State<MyHomePage> {
       cursor: SystemMouseCursors.click,
       child: GestureDetector(
         onTap: () {
-          // Navigate to the desired page when the image is tapped
           if (imagePath == 'assets/doctor.png') {
             Navigator.push(
               context,
