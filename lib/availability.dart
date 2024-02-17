@@ -8,6 +8,7 @@ class Availability extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Custom AppBar Example',
       theme: ThemeData(
         primaryColor: Colors.white,
