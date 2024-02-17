@@ -1,3 +1,4 @@
+import 'package:WeCare/recommendations.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -212,7 +213,7 @@ class _AvailabilityBodyState extends State<AvailabilityBody> {
               Divider(color: Colors.grey), // Grey horizontal line
               SizedBox(height: 10), // Reduce space after divider
               _buildDoctorRecommendationItem(
-                "Dr Olivia Wilson",
+                "Dr Aditi Wats",
                 "consultant-physiotheraphy",
                 "assets/profile_image1.png",
                 4,
@@ -328,7 +329,12 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
             Icons.arrow_back,
           ),
           onPressed: () {
-            Navigator.pop(context);
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => Recomend(),
+              ),
+            );
           },
         ),
       ),

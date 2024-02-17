@@ -78,8 +78,7 @@ class Recomend extends StatelessWidget {
           bottom: PreferredSize(
             preferredSize: Size.fromHeight(100),
             child: Padding(
-              padding: EdgeInsets.symmetric(
-                  horizontal: 50, vertical: 5), // Adjusted vertical padding
+              padding: EdgeInsets.symmetric(horizontal: 50, vertical: 5),
               child: Container(
                 padding: EdgeInsets.symmetric(horizontal: 12),
                 decoration: BoxDecoration(
@@ -122,7 +121,7 @@ class Recomend extends StatelessWidget {
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SizedBox(height: 20), // Adding space below the app bar
+            SizedBox(height: 20),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 55),
               child: Column(
@@ -155,12 +154,9 @@ class Recomend extends StatelessWidget {
                 ],
               ),
             ),
-            SizedBox(
-                height:
-                    10), // Reduced space between the containers and body content
+            SizedBox(height: 10),
             Padding(
-              padding:
-                  EdgeInsets.only(left: 55, top: 5), // Adjusted top padding
+              padding: EdgeInsets.only(left: 55, top: 5),
               child: Row(
                 children: [
                   Text(
