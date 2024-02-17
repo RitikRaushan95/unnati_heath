@@ -16,6 +16,34 @@ class Availability extends StatelessWidget {
       home: Scaffold(
         appBar: CustomAppBar(),
         body: AvailabilityBody(),
+        bottomNavigationBar: BottomNavigationBar(
+          type: BottomNavigationBarType.fixed,
+          backgroundColor: Colors.green,
+          items: const [
+            BottomNavigationBarItem(
+              icon: Icon(Icons.home),
+              label: 'Home',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.local_hospital),
+              label: 'Doctor',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.shopping_cart),
+              label: 'Shop',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.chat),
+              label: 'Ask',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.description),
+              label: 'Doc',
+            ),
+          ],
+          selectedItemColor: Colors.black,
+          unselectedItemColor: Colors.white,
+        ),
       ),
     );
   }
@@ -42,13 +70,13 @@ class _AvailabilityBodyState extends State<AvailabilityBody> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        SizedBox(height: 20), // Add space between AppBar and Container
+        SizedBox(height: 10), // Reduce space between AppBar and Container
         Row(
           children: [
             Icon(Icons.chevron_left),
             Expanded(
               child: Container(
-                height: 80,
+                height: 70, // Reduce the height of the container
                 decoration: BoxDecoration(
                   border: Border(
                     top: BorderSide(color: Colors.grey),
@@ -91,7 +119,7 @@ class _AvailabilityBodyState extends State<AvailabilityBody> {
                           ),
                       ],
                     ),
-                    SizedBox(height: 10), // Add space between rows
+                    SizedBox(height: 5), // Reduce space between rows
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
@@ -125,7 +153,7 @@ class _AvailabilityBodyState extends State<AvailabilityBody> {
             Icon(Icons.chevron_right),
           ],
         ),
-        SizedBox(height: 20),
+        SizedBox(height: 10), // Reduce space after AppBar content
         Padding(
           padding: EdgeInsets.symmetric(horizontal: 20),
           child: Column(
@@ -135,14 +163,18 @@ class _AvailabilityBodyState extends State<AvailabilityBody> {
                 'Recommendations',
                 style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
               ),
-              SizedBox(height: 20),
+              SizedBox(
+                  height:
+                      10), // Reduce space between header and doctor container
               _buildDoctorRecommendationItem(
                 "Dr Olivia Wilson",
                 "consultant-physiotheraphy",
                 "assets/profile_image1.png",
                 4,
               ),
-              SizedBox(height: 20),
+              SizedBox(
+                  height:
+                      10), // Reduce space between doctor container and time rows
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -152,7 +184,7 @@ class _AvailabilityBodyState extends State<AvailabilityBody> {
                   _buildTimeContainer('12:00'),
                 ],
               ),
-              SizedBox(height: 10),
+              SizedBox(height: 5), // Reduce space between rows
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -162,7 +194,9 @@ class _AvailabilityBodyState extends State<AvailabilityBody> {
                   _buildTimeContainer('16:00'),
                 ],
               ),
-              SizedBox(height: 10),
+              SizedBox(
+                  height:
+                      10), // Reduce space between time rows and doctor container
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -170,6 +204,37 @@ class _AvailabilityBodyState extends State<AvailabilityBody> {
                   _buildTimeContainer('18:00'),
                   _buildTimeContainer('19:00'),
                   _buildTimeContainer('20:00'),
+                ],
+              ),
+              SizedBox(
+                  height:
+                      10), // Reduce space between doctor container and divider
+              Divider(color: Colors.grey), // Grey horizontal line
+              SizedBox(height: 10), // Reduce space after divider
+              _buildDoctorRecommendationItem(
+                "Dr Olivia Wilson",
+                "consultant-physiotheraphy",
+                "assets/profile_image1.png",
+                4,
+              ), // Second doctor container
+              SizedBox(height: 10), // Reduce space before time rows
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  _buildTimeContainer('09:00'),
+                  _buildTimeContainer('10:00'),
+                  _buildTimeContainer('11:00'),
+                  _buildTimeContainer('12:00'),
+                ],
+              ),
+              SizedBox(height: 5), // Reduce space between rows
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  _buildTimeContainer('13:00'),
+                  _buildTimeContainer('14:00'),
+                  _buildTimeContainer('15:00'),
+                  _buildTimeContainer('16:00'),
                 ],
               ),
             ],

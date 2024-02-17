@@ -78,7 +78,8 @@ class Recomend extends StatelessWidget {
           bottom: PreferredSize(
             preferredSize: Size.fromHeight(100),
             child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 50, vertical: 10),
+              padding: EdgeInsets.symmetric(
+                  horizontal: 50, vertical: 5), // Adjusted vertical padding
               child: Container(
                 padding: EdgeInsets.symmetric(horizontal: 12),
                 decoration: BoxDecoration(
@@ -156,16 +157,17 @@ class Recomend extends StatelessWidget {
             ),
             SizedBox(
                 height:
-                    20), // Adding space between the containers and body content
+                    10), // Reduced space between the containers and body content
             Padding(
-              padding: EdgeInsets.only(left: 55, top: 10),
+              padding:
+                  EdgeInsets.only(left: 55, top: 5), // Adjusted top padding
               child: Row(
                 children: [
                   Text(
                     'See availability',
                     style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
                   ),
-                  SizedBox(width: 120),
+                  SizedBox(width: 150),
                   ElevatedButton(
                     onPressed: () {
                       Navigator.push(
@@ -187,6 +189,34 @@ class Recomend extends StatelessWidget {
               ),
             ),
           ],
+        ),
+        bottomNavigationBar: BottomNavigationBar(
+          type: BottomNavigationBarType.fixed,
+          backgroundColor: Colors.green,
+          items: const [
+            BottomNavigationBarItem(
+              icon: Icon(Icons.home),
+              label: 'Home',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.local_hospital),
+              label: 'Doctor',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.shopping_cart),
+              label: 'Shop',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.chat),
+              label: 'Ask',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.description),
+              label: 'Doc',
+            ),
+          ],
+          selectedItemColor: Colors.black,
+          unselectedItemColor: Colors.white,
         ),
       ),
     );
