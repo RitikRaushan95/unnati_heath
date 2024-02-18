@@ -1,12 +1,67 @@
+import 'package:WeCare/Welcome.dart';
+import 'package:WeCare/medicine.dart';
+import 'package:WeCare/mybot.dart';
+import 'package:flutter/material.dart';
 import 'package:WeCare/appointment.dart';
 import 'package:WeCare/recommendations.dart';
-import 'package:flutter/material.dart';
 
 void main() {
   runApp(Availability());
 }
 
-class Availability extends StatelessWidget {
+class Availability extends StatefulWidget {
+  @override
+  _AvailabilityState createState() => _AvailabilityState();
+}
+
+class _AvailabilityState extends State<Availability> {
+  int _selectedIndex = 1; // Set the doctor icon as default
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+
+    switch (index) {
+      case 0:
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => WelcomeUser(),
+          ),
+        );
+        break;
+      case 1:
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => Recomend(),
+          ),
+        );
+        break;
+      case 2:
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => Shop(),
+          ),
+        );
+        break;
+      case 3:
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => chatbot(),
+          ),
+        );
+        break;
+      case 4:
+        // Doc icon clicked
+        // Add your navigation logic here
+        break;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -43,8 +98,10 @@ class Availability extends StatelessWidget {
               label: 'Doc',
             ),
           ],
-          selectedItemColor: Colors.black,
+          selectedItemColor: _selectedIndex == 1 ? Colors.black : Colors.white,
           unselectedItemColor: Colors.white,
+          currentIndex: _selectedIndex,
+          onTap: _onItemTapped,
         ),
       ),
     );
@@ -62,7 +119,7 @@ class _AvailabilityBodyState extends State<AvailabilityBody> {
 
   void _selectDate(int index) {
     setState(() {
-      _selectedDates = List.generate(7, (_) => false); // Reset all dates
+      _selectedDates = List.generate(7, (_) => false);
       _selectedDates[index] = true;
       _selectedDayIndex = (index + DateTime.now().weekday - 1) % 7;
     });
@@ -72,13 +129,13 @@ class _AvailabilityBodyState extends State<AvailabilityBody> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        SizedBox(height: 10), // Reduce space between AppBar and Container
+        SizedBox(height: 10),
         Row(
           children: [
             Icon(Icons.chevron_left),
             Expanded(
               child: Container(
-                height: 70, // Reduce the height of the container
+                height: 70,
                 decoration: BoxDecoration(
                   border: Border(
                     top: BorderSide(color: Colors.grey),
@@ -121,7 +178,7 @@ class _AvailabilityBodyState extends State<AvailabilityBody> {
                           ),
                       ],
                     ),
-                    SizedBox(height: 5), // Reduce space between rows
+                    SizedBox(height: 5),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
@@ -155,7 +212,7 @@ class _AvailabilityBodyState extends State<AvailabilityBody> {
             Icon(Icons.chevron_right),
           ],
         ),
-        SizedBox(height: 10), // Reduce space after AppBar content
+        SizedBox(height: 10),
         Padding(
           padding: EdgeInsets.symmetric(horizontal: 20),
           child: Column(
@@ -165,18 +222,14 @@ class _AvailabilityBodyState extends State<AvailabilityBody> {
                 'Recommendations',
                 style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
               ),
-              SizedBox(
-                  height:
-                      10), // Reduce space between header and doctor container
+              SizedBox(height: 10),
               _buildDoctorRecommendationItem(
                 "Dr Olivia Wilson",
                 "consultant-physiotheraphy",
                 "assets/profile_image1.png",
                 4,
               ),
-              SizedBox(
-                  height:
-                      10), // Reduce space between doctor container and time rows
+              SizedBox(height: 10),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -186,7 +239,7 @@ class _AvailabilityBodyState extends State<AvailabilityBody> {
                   _buildTimeContainer('12:00'),
                 ],
               ),
-              SizedBox(height: 5), // Reduce space between rows
+              SizedBox(height: 5),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -196,9 +249,7 @@ class _AvailabilityBodyState extends State<AvailabilityBody> {
                   _buildTimeContainer('16:00'),
                 ],
               ),
-              SizedBox(
-                  height:
-                      10), // Reduce space between time rows and doctor container
+              SizedBox(height: 10),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -208,18 +259,16 @@ class _AvailabilityBodyState extends State<AvailabilityBody> {
                   _buildTimeContainer('20:00'),
                 ],
               ),
-              SizedBox(
-                  height:
-                      10), // Reduce space between doctor container and divider
-              Divider(color: Colors.grey), // Grey horizontal line
-              SizedBox(height: 10), // Reduce space after divider
+              SizedBox(height: 10),
+              Divider(color: Colors.grey),
+              SizedBox(height: 10),
               _buildDoctorRecommendationItem(
                 "Dr Aditi Wats",
                 "consultant-Gynecologist",
                 "assets/profile_image5.png",
                 4,
-              ), // Second doctor container
-              SizedBox(height: 10), // Reduce space before time rows
+              ),
+              SizedBox(height: 10),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -229,7 +278,7 @@ class _AvailabilityBodyState extends State<AvailabilityBody> {
                   _buildTimeContainer('12:00'),
                 ],
               ),
-              SizedBox(height: 5), // Reduce space between rows
+              SizedBox(height: 5),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
