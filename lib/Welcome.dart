@@ -246,11 +246,29 @@ class _MyHomePageState extends State<MyHomePage> {
               ListTile(
                 title: const Text('Logout'),
                 onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const LoginUi(),
-                    ),
+                  // Show a pop-up notification
+                  showDialog(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return AlertDialog(
+                        title: Text("Thank you"),
+                        content: Text("Successfully Loged out"),
+                        actions: [
+                          TextButton(
+                            onPressed: () {
+                              Navigator.of(context).pop();
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => LoginUi(),
+                                ),
+                              );
+                            },
+                            child: Text("OK"),
+                          ),
+                        ],
+                      );
+                    },
                   );
                 },
               ),

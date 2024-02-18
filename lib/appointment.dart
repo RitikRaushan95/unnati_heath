@@ -1,3 +1,4 @@
+import 'package:WeCare/availability.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -293,7 +294,35 @@ class _AppointmentState extends State<Appointment> {
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
             child: ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                // Show a pop-up notification
+                showDialog(
+                  context: context,
+                  builder: (BuildContext context) {
+                    return AlertDialog(
+                      title: Text("Thank you"),
+                      content: Text(
+                          "Your appointment has been successfull booked !!."),
+                      actions: [
+                        TextButton(
+                          onPressed: () {
+                            // Close the pop-up dialog
+                            Navigator.of(context).pop();
+                            // Navigate to the desired page (if needed)
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => Availability(),
+                              ),
+                            );
+                          },
+                          child: Text("OK"),
+                        ),
+                      ],
+                    );
+                  },
+                );
+              },
               child: Text(
                 'Book Appointment',
                 style: TextStyle(

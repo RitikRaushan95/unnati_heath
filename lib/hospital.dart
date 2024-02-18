@@ -1,8 +1,8 @@
 import 'dart:async';
 import 'dart:math';
 
-import 'package:WeCare/patientlist.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart'; // Import the url_launcher package
 import 'package:fl_chart/fl_chart.dart'; // Import the fl_chart package
 
 void main() {
@@ -25,7 +25,7 @@ class MainScreen extends StatefulWidget {
 
 class _MainScreenState extends State<MainScreen> {
   int _selectedIndex = 1;
-  List<int> histogramData = List.filled(3, 0); // Initialize with 3 zeros
+  List<int> histogramData = List.filled(3, 0);
 
   @override
   void initState() {
@@ -35,8 +35,6 @@ class _MainScreenState extends State<MainScreen> {
 
   void startTimer() {
     Timer.periodic(Duration(seconds: 5), (timer) {
-      // Update histogram data with new values or fetch them from an API
-      // For now, we'll generate random values as an example
       setState(() {
         histogramData = List.generate(3, (index) => Random().nextInt(500));
       });
@@ -96,14 +94,19 @@ class _MainScreenState extends State<MainScreen> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'Blue Heart Hospital',
+                  'Curis Hospital',
                   style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold),
                 ),
                 Row(
                   children: [
-                    Icon(
-                      Icons.location_on,
-                      color: Colors.black,
+                    GestureDetector(
+                      onTap: () {
+                        launch('https://maps.app.goo.gl/f7Ln4eWt3H9dizkH7');
+                      },
+                      child: Icon(
+                        Icons.location_on,
+                        color: Colors.black,
+                      ),
                     ),
                     Text(
                       'Danapur, Patna, Bihar',
@@ -148,9 +151,9 @@ class _MainScreenState extends State<MainScreen> {
                       'Appointments',
                       style: TextStyle(
                         fontSize: 20.0,
-                        decoration: TextDecoration.underline, // Add underline
-                        decorationColor: Colors.blue, // Set underline color
-                        decorationThickness: 2.0, // Set underline thickness
+                        decoration: TextDecoration.underline,
+                        decorationColor: Colors.blue,
+                        decorationThickness: 2.0,
                       ),
                     ),
                     SizedBox(width: 20.0),
@@ -158,10 +161,9 @@ class _MainScreenState extends State<MainScreen> {
                       'Patients',
                       style: TextStyle(
                         fontSize: 20.0,
-                        decoration: TextDecoration.underline, // Add underline
-                        decorationColor:
-                            Colors.indigo[900], // Set underline color
-                        decorationThickness: 2.0, // Set underline thickness
+                        decoration: TextDecoration.underline,
+                        decorationColor: Colors.indigo[900],
+                        decorationThickness: 2.0,
                       ),
                     ),
                     SizedBox(width: 20.0),
@@ -169,16 +171,14 @@ class _MainScreenState extends State<MainScreen> {
                       'Operations',
                       style: TextStyle(
                         fontSize: 20.0,
-                        decoration: TextDecoration.underline, // Add underline
-                        decorationColor:
-                            Colors.orange[700], // Set underline color
-                        decorationThickness: 2.0, // Set underline thickness
+                        decoration: TextDecoration.underline,
+                        decorationColor: Colors.orange[700],
+                        decorationThickness: 2.0,
                       ),
                     ),
                   ],
                 ),
-                SizedBox(height: 10.0), // Add spacing between rows if needed
-                // Row of text "200", "1200", "12"
+                SizedBox(height: 10.0),
                 Row(
                   children: List.generate(
                     histogramData.length,
@@ -191,16 +191,15 @@ class _MainScreenState extends State<MainScreen> {
                     ),
                   ),
                 ),
-                SizedBox(height: 10.0), // Add spacing between rows if needed
-                // Updated code below for live histogram
+                SizedBox(height: 10.0),
                 Container(
                   height: 200.0,
                   width: screenWidth * 0.7,
                   child: BarChart(
                     BarChartData(
                       alignment: BarChartAlignment.center,
-                      maxY: 500, // Adjust the max Y value as needed
-                      groupsSpace: 50.0, // Adjust the space between groups
+                      maxY: 500,
+                      groupsSpace: 50.0,
                       barTouchData: BarTouchData(
                         touchTooltipData: BarTouchTooltipData(
                           tooltipBgColor: Colors.blueAccent,
@@ -209,11 +208,11 @@ class _MainScreenState extends State<MainScreen> {
                       titlesData: FlTitlesData(
                         leftTitles: SideTitles(
                           showTitles: true,
-                          interval: 100, // Adjust the interval on Y-axis
+                          interval: 100,
                         ),
                         bottomTitles: SideTitles(
                           showTitles: true,
-                          interval: 1, // Adjust the interval on X-axis
+                          interval: 1,
                         ),
                       ),
                       borderData: FlBorderData(
@@ -298,9 +297,10 @@ class _MainScreenState extends State<MainScreen> {
     setState(() {
       _selectedIndex = index;
       if (index == 0) {
+        // Replace DocPro with the appropriate class for the Patients screen
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => DocPro()),
+          MaterialPageRoute(builder: (context) => PatientsScreen()),
         );
       } else if (index == 1) {
         Navigator.push(

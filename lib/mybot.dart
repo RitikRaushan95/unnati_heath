@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:WeCare/Welcome.dart';
 import 'package:dash_chat_2/dash_chat_2.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
@@ -62,7 +63,12 @@ class _chatbotState extends State<chatbot> {
           elevation: 0,
           leading: IconButton(
             onPressed: () {
-              Navigator.pop(context);
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => WelcomeUser(),
+                ),
+              );
             },
             icon: const Icon(
               Icons.arrow_back_ios,

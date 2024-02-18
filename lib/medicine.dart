@@ -14,7 +14,7 @@ class Shop extends StatefulWidget {
 
 class _ShopState extends State<Shop> {
   int cartItemCount = 0;
-  int _selectedIndex = 2; // Setting default selection to "Shop"
+  int _selectedIndex = 2;
 
   void _onItemTapped(int index) {
     setState(() {
@@ -23,32 +23,22 @@ class _ShopState extends State<Shop> {
 
     switch (index) {
       case 0:
-        // Navigate to the Home page
-        // Replace 'HomeScreen()' with the appropriate widget for your Home page
         Navigator.pushReplacement(
             context, MaterialPageRoute(builder: (context) => WelcomeUser()));
         break;
       case 1:
-        // Navigate to the Doctor page
-        // Replace 'DoctorScreen()' with the appropriate widget for your Doctor page
         Navigator.pushReplacement(
             context, MaterialPageRoute(builder: (context) => Recomend()));
         break;
       case 2:
-        // Navigate to the Shop page
-        // Replace 'ShopScreen()' with the appropriate widget for your Shop page
         Navigator.pushReplacement(
             context, MaterialPageRoute(builder: (context) => Shop()));
         break;
       case 3:
-        // Navigate to the Ask page
-        // Replace 'AskScreen()' with the appropriate widget for your Ask page
         Navigator.pushReplacement(
             context, MaterialPageRoute(builder: (context) => chatbot()));
         break;
       case 4:
-        // Navigate to the Doc page
-        // Replace 'DocScreen()' with the appropriate widget for your Doc page
         Navigator.pushReplacement(
             context, MaterialPageRoute(builder: (context) => DocScreen()));
         break;
@@ -64,7 +54,7 @@ class _ShopState extends State<Shop> {
         appBar: CustomAppBar(cartItemCount: cartItemCount),
         body: Column(
           children: [
-            SizedBox(height: 5), // Add some space below the app bar
+            SizedBox(height: 5),
             Center(
               child: Text(
                 "Order Medicines Now",
@@ -76,7 +66,7 @@ class _ShopState extends State<Shop> {
             ),
             SizedBox(
               height: 10,
-            ), // Reduce space between the text and containers
+            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
@@ -128,7 +118,7 @@ class _ShopState extends State<Shop> {
             ),
             SizedBox(
               height: 10,
-            ), // Reduce space between the containers
+            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
@@ -201,8 +191,12 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       leading: IconButton(
         icon: Icon(Icons.arrow_back),
         onPressed: () {
-          // Add your back button functionality here
-          Navigator.of(context).pop();
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => WelcomeUser(),
+            ),
+          );
         },
       ),
       title: Row(
