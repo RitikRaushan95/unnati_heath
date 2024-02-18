@@ -1,9 +1,10 @@
 import 'dart:async';
 import 'dart:math';
 
+import 'package:WeCare/patientlist.dart';
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart'; // Import the url_launcher package
-import 'package:fl_chart/fl_chart.dart'; // Import the fl_chart package
+import 'package:url_launcher/url_launcher.dart';
+import 'package:fl_chart/fl_chart.dart';
 
 void main() {
   runApp(HosReport());
@@ -142,38 +143,47 @@ class _MainScreenState extends State<MainScreen> {
           ),
           Positioned(
             top: 220.0,
-            left: screenWidth * 0.1,
+            left: screenWidth * 0.02,
             child: Column(
               children: [
                 Row(
                   children: [
+                    Container(
+                      width: 15,
+                      height: 15,
+                      color: Colors.blue,
+                    ),
+                    SizedBox(width: 5.0),
                     Text(
                       'Appointments',
                       style: TextStyle(
                         fontSize: 20.0,
-                        decoration: TextDecoration.underline,
-                        decorationColor: Colors.blue,
-                        decorationThickness: 2.0,
                       ),
                     ),
-                    SizedBox(width: 20.0),
+                    SizedBox(width: 5.0),
+                    Container(
+                      width: 15,
+                      height: 15,
+                      color: Colors.indigo[900], // Choose the color you want
+                    ),
+                    SizedBox(width: 5.0),
                     Text(
                       'Patients',
                       style: TextStyle(
                         fontSize: 20.0,
-                        decoration: TextDecoration.underline,
-                        decorationColor: Colors.indigo[900],
-                        decorationThickness: 2.0,
                       ),
                     ),
-                    SizedBox(width: 20.0),
+                    SizedBox(width: 5.0),
+                    Container(
+                      width: 15,
+                      height: 15,
+                      color: Colors.orange[700], // Choose the color you want
+                    ),
+                    SizedBox(width: 5.0),
                     Text(
                       'Operations',
                       style: TextStyle(
                         fontSize: 20.0,
-                        decoration: TextDecoration.underline,
-                        decorationColor: Colors.orange[700],
-                        decorationThickness: 2.0,
                       ),
                     ),
                   ],
@@ -300,7 +310,7 @@ class _MainScreenState extends State<MainScreen> {
         // Replace DocPro with the appropriate class for the Patients screen
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => PatientsScreen()),
+          MaterialPageRoute(builder: (context) => DocPro()),
         );
       } else if (index == 1) {
         Navigator.push(

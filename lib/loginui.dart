@@ -1,17 +1,19 @@
 import 'package:WeCare/Welcome.dart';
+import 'package:WeCare/patientlist.dart';
 import 'package:flutter/material.dart';
 import 'package:WeCare/register.dart';
 
 class LoginUi extends StatefulWidget {
-  const LoginUi({super.key});
+  const LoginUi({Key? key}) : super(key: key);
 
   @override
-  State<LoginUi> createState() => _LoginUiState();
+  _LoginUiState createState() => _LoginUiState();
 }
 
 class _LoginUiState extends State<LoginUi> {
   bool rememberMe = false;
   bool obscureText = true;
+  String selectedRole = 'Select Role'; // Default selected role
 
   @override
   Widget build(BuildContext context) {
@@ -19,9 +21,7 @@ class _LoginUiState extends State<LoginUi> {
       resizeToAvoidBottomInset: false,
       body: SafeArea(
         child: Padding(
-          padding: EdgeInsets.symmetric(
-            horizontal: 20,
-          ),
+          padding: EdgeInsets.symmetric(horizontal: 20),
           child: SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -60,9 +60,7 @@ class _LoginUiState extends State<LoginUi> {
                     borderRadius: BorderRadius.circular(8),
                   ),
                   child: Padding(
-                    padding: EdgeInsets.symmetric(
-                      horizontal: 15,
-                    ),
+                    padding: EdgeInsets.symmetric(horizontal: 15),
                     child: TextFormField(
                       // controller: email,
                       decoration: const InputDecoration(
@@ -80,9 +78,7 @@ class _LoginUiState extends State<LoginUi> {
                     borderRadius: BorderRadius.circular(8),
                   ),
                   child: Padding(
-                    padding: EdgeInsets.symmetric(
-                      horizontal: 15,
-                    ),
+                    padding: EdgeInsets.symmetric(horizontal: 15),
                     child: Stack(
                       alignment: Alignment.centerRight,
                       children: [
@@ -111,6 +107,45 @@ class _LoginUiState extends State<LoginUi> {
                   ),
                 ),
                 const SizedBox(height: 10),
+
+                // Dropdown menu for selecting role
+                Container(
+                  decoration: BoxDecoration(
+                    color: const Color(0xFFF1F1F1),
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  child: Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 15),
+                    child: DropdownButtonFormField<String>(
+                      value: selectedRole,
+                      onChanged: (value) {
+                        setState(() {
+                          selectedRole = value!;
+                        });
+                      },
+                      items: [
+                        DropdownMenuItem(
+                          value: 'Patient',
+                          child: Text('Patient'),
+                        ),
+                        DropdownMenuItem(
+                          value: 'Doctor',
+                          child: Text('Doctor'),
+                        ),
+                        DropdownMenuItem(
+                          value: 'Select Role',
+                          child: Text('Select Role'),
+                        ),
+                      ],
+                      decoration: InputDecoration(
+                        border: InputBorder.none,
+                        hintText: 'Select Role',
+                      ),
+                    ),
+                  ),
+                ),
+
+                const SizedBox(height: 20),
 
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -155,12 +190,41 @@ class _LoginUiState extends State<LoginUi> {
                           borderRadius: BorderRadius.circular(10),
                         ),
                         onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => WelcomeUser(),
-                            ),
-                          );
+                          // Check the selected role and navigate accordingly
+                          if (selectedRole == 'Doctor') {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => DocPro(),
+                              ),
+                            );
+                          } else if (selectedRole == 'Patient') {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => WelcomeUser(),
+                              ),
+                            );
+                          } else {
+                            showDialog(
+                              context: context,
+                              builder: (BuildContext context) {
+                                return AlertDialog(
+                                  title: Text('Select Role'),
+                                  content: Text(
+                                      'Please select a role before signing in.'),
+                                  actions: [
+                                    TextButton(
+                                      onPressed: () {
+                                        Navigator.pop(context);
+                                      },
+                                      child: Text('OK'),
+                                    ),
+                                  ],
+                                );
+                              },
+                            );
+                          }
                         },
                         child: Padding(
                           padding: EdgeInsets.all(8),
@@ -178,11 +242,12 @@ class _LoginUiState extends State<LoginUi> {
                   ],
                 ),
                 const SizedBox(height: 10),
-                //Register button
+
+                // Register button
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const Text("Don't have account ?"),
+                    const Text("Don't have an account?"),
                     TextButton(
                       onPressed: () {
                         Navigator.push(

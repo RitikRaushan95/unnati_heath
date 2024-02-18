@@ -295,7 +295,6 @@ class _AppointmentState extends State<Appointment> {
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
             child: ElevatedButton(
               onPressed: () {
-                // Show a pop-up notification
                 showDialog(
                   context: context,
                   builder: (BuildContext context) {
@@ -306,9 +305,7 @@ class _AppointmentState extends State<Appointment> {
                       actions: [
                         TextButton(
                           onPressed: () {
-                            // Close the pop-up dialog
                             Navigator.of(context).pop();
-                            // Navigate to the desired page (if needed)
                             Navigator.push(
                               context,
                               MaterialPageRoute(
