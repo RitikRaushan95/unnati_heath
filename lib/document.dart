@@ -84,6 +84,27 @@ class _DocState extends State<Doc> {
           _buildCertificateRow(
               Icons.scatter_plot, "Stress Test Report", "Download"),
           // Add more rows as needed with different text formats
+
+          // Add the new container with the border and "+" icon
+          SizedBox(height: 200.0),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20.0),
+            child: Container(
+              decoration: BoxDecoration(
+                border: Border.all(color: Colors.black),
+                borderRadius: BorderRadius.circular(20.0),
+              ),
+              child: Center(
+                child: Icon(
+                  Icons.add,
+                  size: 50.0,
+                  color: Colors.black,
+                ),
+              ),
+              width: double.infinity,
+              height: 100.0,
+            ),
+          ),
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
