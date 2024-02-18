@@ -1,13 +1,15 @@
-import 'package:WeCare/loginui.dart';
-import 'package:WeCare/medicine.dart';
-import 'package:WeCare/recommendations.dart';
+import 'package:WeCare/mybot.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:url_launcher/url_launcher.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'loginui.dart';
+import 'medicine.dart';
+import 'recommendations.dart';
 
+int _selectedIndex = 0;
 void main() => runApp(WelcomeUser());
 
 class WelcomeUser extends StatelessWidget {
@@ -32,8 +34,37 @@ class _MyHomePageState extends State<MyHomePage> {
   late Future<List<Article>> _newsArticlesFuture;
   int _currentIndex = 0;
   bool _isParacetamolChecked = true;
-  bool _isDigeneTabletsChecked = false; // default unchecked
-  bool _isDarkMode = false; // Track current theme mode
+  bool _isDigeneTabletsChecked = false;
+  bool _isDarkMode = false;
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+
+    switch (index) {
+      case 0:
+        Navigator.pushReplacement(
+            context, MaterialPageRoute(builder: (context) => WelcomeUser()));
+        break;
+      case 1:
+        Navigator.pushReplacement(
+            context, MaterialPageRoute(builder: (context) => Recomend()));
+        break;
+      case 2:
+        Navigator.pushReplacement(
+            context, MaterialPageRoute(builder: (context) => Shop()));
+        break;
+      case 3:
+        Navigator.pushReplacement(
+            context, MaterialPageRoute(builder: (context) => chatbot()));
+        break;
+      case 4:
+        break;
+      default:
+        break;
+    }
+  }
 
   @override
   void initState() {
@@ -126,7 +157,7 @@ class _MyHomePageState extends State<MyHomePage> {
             padding: EdgeInsets.zero,
             children: <Widget>[
               SizedBox(
-                height: 110,
+                height: 105,
                 child: DrawerHeader(
                   decoration: const BoxDecoration(
                     color: Color.fromARGB(255, 112, 238, 119),
@@ -228,7 +259,7 @@ class _MyHomePageState extends State<MyHomePage> {
           width: MediaQuery.of(context).size.width * 0.5,
         ),
         body: SingleChildScrollView(
-          padding: EdgeInsets.only(bottom: 10), // Adjusted padding
+          padding: EdgeInsets.only(bottom: 10),
           child: Container(
             color: _isDarkMode
                 ? Colors.black
@@ -291,11 +322,9 @@ class _MyHomePageState extends State<MyHomePage> {
                                 ),
                                 GestureDetector(
                                   onTap: () {
-                                    // Handle redirection to article URL
                                     String articleUrl =
                                         _newsArticles[_currentIndex].url!;
                                     if (articleUrl.isNotEmpty) {
-                                      // Open article URL in browser
                                       launch(articleUrl);
                                     }
                                   },
@@ -446,6 +475,7 @@ class _MyHomePageState extends State<MyHomePage> {
           ],
           selectedItemColor: Colors.black,
           unselectedItemColor: Colors.white,
+          onTap: _onItemTapped,
         ),
       ),
     );
@@ -650,5 +680,18 @@ class Article {
       title: json['title'],
       url: json['url'],
     );
+  }
+}
+
+class _Welcomestate extends StatefulWidget {
+  @override
+  _ShopState createState() => _ShopState();
+}
+
+class _ShopState extends State<_Welcomestate> {
+  int cartItemCount = 0;
+  @override
+  Widget build(BuildContext context) {
+    return Container();
   }
 }

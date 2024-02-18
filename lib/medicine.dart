@@ -1,3 +1,6 @@
+import 'package:WeCare/Welcome.dart';
+import 'package:WeCare/mybot.dart';
+import 'package:WeCare/recommendations.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -11,12 +14,47 @@ class Shop extends StatefulWidget {
 
 class _ShopState extends State<Shop> {
   int cartItemCount = 0;
-  int _selectedIndex = 0;
+  int _selectedIndex = 2; // Setting default selection to "Shop"
 
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
     });
+
+    switch (index) {
+      case 0:
+        // Navigate to the Home page
+        // Replace 'HomeScreen()' with the appropriate widget for your Home page
+        Navigator.pushReplacement(
+            context, MaterialPageRoute(builder: (context) => WelcomeUser()));
+        break;
+      case 1:
+        // Navigate to the Doctor page
+        // Replace 'DoctorScreen()' with the appropriate widget for your Doctor page
+        Navigator.pushReplacement(
+            context, MaterialPageRoute(builder: (context) => Recomend()));
+        break;
+      case 2:
+        // Navigate to the Shop page
+        // Replace 'ShopScreen()' with the appropriate widget for your Shop page
+        Navigator.pushReplacement(
+            context, MaterialPageRoute(builder: (context) => Shop()));
+        break;
+      case 3:
+        // Navigate to the Ask page
+        // Replace 'AskScreen()' with the appropriate widget for your Ask page
+        Navigator.pushReplacement(
+            context, MaterialPageRoute(builder: (context) => chatbot()));
+        break;
+      case 4:
+        // Navigate to the Doc page
+        // Replace 'DocScreen()' with the appropriate widget for your Doc page
+        Navigator.pushReplacement(
+            context, MaterialPageRoute(builder: (context) => DocScreen()));
+        break;
+      default:
+        break;
+    }
   }
 
   @override
@@ -43,7 +81,7 @@ class _ShopState extends State<Shop> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 BigContainer(
-                  text: 'Medicine 1',
+                  text: 'Abacavir',
                   imagePath: 'assets/single_medicine.png',
                   onAddToCart: () {
                     setState(() {
@@ -52,7 +90,7 @@ class _ShopState extends State<Shop> {
                   },
                 ),
                 BigContainer(
-                  text: 'Medicine 2',
+                  text: 'Amoxicillin',
                   imagePath: 'assets/single_medicine.png',
                   onAddToCart: () {
                     setState(() {
@@ -69,7 +107,7 @@ class _ShopState extends State<Shop> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 BigContainer(
-                  text: 'Medicine 3',
+                  text: 'Benedryl',
                   imagePath: 'assets/syrup.png',
                   onAddToCart: () {
                     setState(() {
@@ -78,7 +116,7 @@ class _ShopState extends State<Shop> {
                   },
                 ),
                 BigContainer(
-                  text: 'Medicine 4',
+                  text: 'Paracetamole',
                   imagePath: 'assets/Medicinebg.png',
                   onAddToCart: () {
                     setState(() {
@@ -95,7 +133,7 @@ class _ShopState extends State<Shop> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 BigContainer(
-                  text: 'Medicine 5',
+                  text: 'Digene Tablets',
                   imagePath: 'assets/Medicinebg.png',
                   onAddToCart: () {
                     setState(() {
@@ -104,8 +142,8 @@ class _ShopState extends State<Shop> {
                   },
                 ),
                 BigContainer(
-                  text: 'Medicine 6',
-                  imagePath: 'assets/medicine6.png',
+                  text: 'Vicks',
+                  imagePath: 'assets/vicks.png',
                   onAddToCart: () {
                     setState(() {
                       cartItemCount++;
@@ -303,6 +341,76 @@ class BigContainer extends StatelessWidget {
             ],
           ),
         ],
+      ),
+    );
+  }
+}
+
+class HomeScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Home'),
+      ),
+      body: Center(
+        child: Text('Home Screen'),
+      ),
+    );
+  }
+}
+
+class DoctorScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Doctor'),
+      ),
+      body: Center(
+        child: Text('Doctor Screen'),
+      ),
+    );
+  }
+}
+
+class ShopScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Shop'),
+      ),
+      body: Center(
+        child: Text('Shop Screen'),
+      ),
+    );
+  }
+}
+
+class AskScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Ask'),
+      ),
+      body: Center(
+        child: Text('Ask Screen'),
+      ),
+    );
+  }
+}
+
+class DocScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Doc'),
+      ),
+      body: Center(
+        child: Text('Doc Screen'),
       ),
     );
   }

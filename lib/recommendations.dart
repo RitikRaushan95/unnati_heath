@@ -1,12 +1,62 @@
-import 'package:WeCare/Welcome.dart';
-import 'package:WeCare/availability.dart';
+import 'package:WeCare/medicine.dart';
+import 'package:WeCare/mybot.dart';
 import 'package:flutter/material.dart';
+import 'availability.dart';
+import 'Welcome.dart';
 
 void main() {
   runApp(Recomend());
 }
 
-class Recomend extends StatelessWidget {
+class Recomend extends StatefulWidget {
+  @override
+  _RecomendState createState() => _RecomendState();
+}
+
+class _RecomendState extends State<Recomend> {
+  int _selectedIndex = 1;
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+
+    switch (index) {
+      case 0:
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => WelcomeUser()),
+        );
+        break;
+      case 1:
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => Recomend()),
+        );
+        break;
+      case 2:
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => Shop()),
+        );
+        break;
+      case 3:
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => chatbot()),
+        );
+        break;
+      case 4:
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => DocScreen()),
+        );
+        break;
+      default:
+        break;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -47,12 +97,12 @@ class Recomend extends StatelessWidget {
                 const SizedBox(width: 20),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const Text(
+                  children: const [
+                    Text(
                       'Welcome',
                       style: TextStyle(fontSize: 15),
                     ),
-                    const Text(
+                    Text(
                       'Aastha',
                       style: TextStyle(
                         fontSize: 15,
@@ -60,7 +110,7 @@ class Recomend extends StatelessWidget {
                     ),
                   ],
                 ),
-                const Spacer(),
+                Spacer(),
                 Row(
                   children: const [
                     Icon(Icons.location_on, size: 20),
@@ -163,7 +213,7 @@ class Recomend extends StatelessWidget {
                     'See availability',
                     style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
                   ),
-                  SizedBox(width: 150),
+                  SizedBox(width: 120),
                   ElevatedButton(
                     onPressed: () {
                       Navigator.push(
@@ -211,8 +261,10 @@ class Recomend extends StatelessWidget {
               label: 'Doc',
             ),
           ],
+          currentIndex: _selectedIndex,
           selectedItemColor: Colors.black,
           unselectedItemColor: Colors.white,
+          onTap: _onItemTapped,
         ),
       ),
     );
@@ -251,6 +303,48 @@ class Recomend extends StatelessWidget {
           ],
         ),
       ],
+    );
+  }
+}
+
+class ShopScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Shop'),
+      ),
+      body: Center(
+        child: Text('Shop Screen'),
+      ),
+    );
+  }
+}
+
+class AskScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Ask'),
+      ),
+      body: Center(
+        child: Text('Ask Screen'),
+      ),
+    );
+  }
+}
+
+class DocScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Doc'),
+      ),
+      body: Center(
+        child: Text('Doc Screen'),
+      ),
     );
   }
 }
