@@ -1,3 +1,4 @@
+import 'package:WeCare/document.dart';
 import 'package:WeCare/mybot.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
@@ -60,6 +61,10 @@ class _MyHomePageState extends State<MyHomePage> {
             context, MaterialPageRoute(builder: (context) => chatbot()));
         break;
       case 4:
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => Doc()),
+        );
         break;
       default:
         break;
