@@ -40,7 +40,7 @@ class _chatbotState extends State<chatbot> {
         .then((value) {
       if (value.statusCode == 200) {
         var result = jsonDecode(value.body);
-        //  print(result['candidates'][0]['content']['parts'][0]['text']);
+        // print(result['candidates'][0]['content']['parts'][0]['text']);
 
         ChatMessage m1 = ChatMessage(
             text: result['candidates'][0]['content']['parts'][0]['text'],
