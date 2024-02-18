@@ -75,7 +75,7 @@ class _GetStartedState extends State<GetStarted> {
         children: [
           CarouselSlider(
             options: CarouselOptions(
-              height: 450.0,
+              height: 500.0,
               enlargeCenterPage: true,
               onPageChanged: (index, reason) {
                 setState(() {
@@ -111,25 +111,29 @@ class _GetStartedState extends State<GetStarted> {
               child: Text(imageDescriptions[_currentPage]),
             ),
           ),
-          ElevatedButton(
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const LoginUi(),
+          Container(
+            padding: EdgeInsets.symmetric(horizontal: 40.0),
+            child: ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const LoginUi(),
+                  ),
+                );
+              },
+              style: ElevatedButton.styleFrom(
+                backgroundColor: const Color.fromRGBO(67, 177, 75, 1.0),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10.0),
                 ),
-              );
-            },
-            style: ElevatedButton.styleFrom(
-              backgroundColor: const Color.fromRGBO(67, 177, 75, 1.0),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(10.0),
+                padding: EdgeInsets.all(20.0),
               ),
-            ),
-            child: const Text(
-              "Get Started",
-              style: TextStyle(
-                color: Colors.white,
+              child: const Text(
+                "Get Started",
+                style: TextStyle(
+                  color: Colors.white,
+                ),
               ),
             ),
           ),
