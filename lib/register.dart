@@ -240,6 +240,7 @@ Widget inputFile({label, obscureText = false}) {
 
 void main() {
   runApp(const MaterialApp(
+    debugShowCheckedModeBanner: false,
     home: SignupPage(),
   ));
 }

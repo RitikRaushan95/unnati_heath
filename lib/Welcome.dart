@@ -249,6 +249,12 @@ class _MyHomePageState extends State<MyHomePage> {
                 },
               ),
               ListTile(
+                title: const Text('About'),
+                onTap: () {
+                  // Add logic for Logout
+                },
+              ),
+              ListTile(
                 title: const Text('Logout'),
                 onTap: () {
                   // Show a pop-up notification

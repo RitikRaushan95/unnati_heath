@@ -50,6 +50,7 @@ class _ShopState extends State<Shop> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: CustomAppBar(cartItemCount: cartItemCount),
         body: Column(

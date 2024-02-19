@@ -11,7 +11,7 @@ class Appointment extends StatefulWidget {
 }
 
 class _AppointmentState extends State<Appointment> {
-  String _selectedText = ''; // Track the selected text
+  String _selectedText = '';
 
   // Track the checklist items
   bool _isParacetamolChecked = false;
@@ -42,6 +42,7 @@ class _AppointmentState extends State<Appointment> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Full Width Image',
       theme: ThemeData(
         appBarTheme: AppBarTheme(
@@ -324,7 +325,7 @@ class _AppointmentState extends State<Appointment> {
                 'Book Appointment',
                 style: TextStyle(
                   color: Colors.black,
-                  fontSize: 10,
+                  fontSize: 18,
                 ),
               ),
               style: ElevatedButton.styleFrom(
