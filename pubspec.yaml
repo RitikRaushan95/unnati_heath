@@ -35,8 +35,10 @@ dependencies:
   faker: ^2.1.0
   carousel_slider: ^4.0.0
  # flutter_dialogflow: ^0.8.1
- # flutter_swiper: ^2.0.0
- 
+ # flutter_swiper: ^2.0
+  google_maps_flutter: ^2.5.3
+  flutter_email_sender: ^6.0.2
+  mailer: ^6.1.0
   
 
 

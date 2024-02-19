@@ -275,7 +275,7 @@ class _RecomendState extends State<Recomend> {
       children: [
         SizedBox(width: 20),
         Container(
-          width: 60,
+          width: 40,
           height: 60,
           decoration: BoxDecoration(
             shape: BoxShape.circle,

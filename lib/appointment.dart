@@ -324,7 +324,7 @@ class _AppointmentState extends State<Appointment> {
                 'Book Appointment',
                 style: TextStyle(
                   color: Colors.black,
-                  fontSize: 18,
+                  fontSize: 10,
                 ),
               ),
               style: ElevatedButton.styleFrom(
