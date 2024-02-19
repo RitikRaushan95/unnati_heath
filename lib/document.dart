@@ -18,6 +18,16 @@ class Document extends StatelessWidget {
   }
 }
 
+class Feedbackk extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Doc(),
+    );
+  }
+}
+
 class Doc extends StatefulWidget {
   @override
   _DocState createState() => _DocState();

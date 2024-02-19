@@ -2,6 +2,7 @@ import 'package:WeCare/Welcome.dart';
 import 'package:WeCare/patientlist.dart';
 import 'package:flutter/material.dart';
 import 'package:WeCare/register.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
 class LoginUi extends StatefulWidget {
   const LoginUi({Key? key}) : super(key: key);
@@ -242,6 +243,60 @@ class _LoginUiState extends State<LoginUi> {
                   ],
                 ),
                 const SizedBox(height: 10),
+
+                // "or" text
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Expanded(
+                      child: Divider(
+                        color: Colors.black,
+                        height: 36,
+                      ),
+                    ),
+                    const Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 10),
+                      child: Text("or"),
+                    ),
+                    const Expanded(
+                      child: Divider(
+                        color: Colors.black,
+                        height: 36,
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 10),
+
+                // Sign in with Google button
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    ElevatedButton.icon(
+                      onPressed: () {
+                        // Handle Sign in with Google action
+                      },
+                      icon: Icon(
+                        Icons
+                            .g_translate, // Replace with the actual Google icon
+                        color: Colors.white,
+                      ),
+                      label: Text(
+                        "Sign in with Google",
+                        style: TextStyle(
+                          color: Colors.white,
+                        ),
+                      ),
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.green,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        minimumSize: Size(300, 50),
+                      ),
+                    ),
+                  ],
+                ),
 
                 // Register button
                 Row(

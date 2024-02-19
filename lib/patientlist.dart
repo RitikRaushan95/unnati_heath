@@ -1,4 +1,5 @@
 import 'package:WeCare/hospital.dart';
+import 'package:WeCare/loginui.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -29,9 +30,18 @@ class _MainScreenState extends State<MainScreen> {
 
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(20.0),
+        preferredSize: Size.fromHeight(40.0),
         child: AppBar(
           backgroundColor: Colors.green,
+          leading: IconButton(
+            icon: Icon(Icons.logout), // Add the logout icon
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => LoginUi()),
+              );
+            },
+          ),
         ),
       ),
       body: Stack(
@@ -40,7 +50,7 @@ class _MainScreenState extends State<MainScreen> {
             color: Colors.white,
           ),
           Container(
-            height: 86.0,
+            height: 70,
             color: Colors.green,
           ),
           Positioned(

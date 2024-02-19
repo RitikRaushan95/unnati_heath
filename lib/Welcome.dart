@@ -1,4 +1,5 @@
 import 'package:WeCare/document.dart';
+import 'package:WeCare/feedback.dart';
 import 'package:WeCare/mybot.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
@@ -77,7 +78,7 @@ class _MyHomePageState extends State<MyHomePage> {
     _newsArticlesFuture = fetchNewsArticles();
     _newsArticlesFuture.then((articles) {
       _newsArticles = articles;
-      Timer.periodic(const Duration(minutes: 1), (Timer timer) {
+      Timer.periodic(const Duration(seconds: 2), (Timer timer) {
         setState(() {
           _currentIndex = (_currentIndex + 1) % _newsArticles.length;
         });
@@ -147,7 +148,7 @@ class _MyHomePageState extends State<MyHomePage> {
               IconButton(
                 icon: const Icon(
                   Icons.notifications,
-                  color: Colors.white,
+                  color: Colors.black,
                 ),
                 onPressed: () {
                   // Add  notification logic here
@@ -157,12 +158,12 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
         ),
         drawer: Drawer(
-          // Adjusted padding to fix bottom overflow
           child: ListView(
-            padding: EdgeInsets.zero,
+            padding:
+                EdgeInsets.only(bottom: MediaQuery.of(context).padding.bottom),
             children: <Widget>[
               SizedBox(
-                height: 105,
+                height: 120,
                 child: DrawerHeader(
                   decoration: const BoxDecoration(
                     color: Color.fromARGB(255, 112, 238, 119),
@@ -170,11 +171,11 @@ class _MyHomePageState extends State<MyHomePage> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const Row(
+                      Row(
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [],
                       ),
-                      const SizedBox(height: 20),
+                      //const SizedBox(height: 5),
                       Row(
                         children: [
                           const Icon(Icons.person),
@@ -216,6 +217,12 @@ class _MyHomePageState extends State<MyHomePage> {
                 title: const Text('Records'),
                 onTap: () {
                   // Add logic for Settings
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => Document(),
+                    ),
+                  );
                 },
               ),
               ListTile(
@@ -252,6 +259,18 @@ class _MyHomePageState extends State<MyHomePage> {
                 title: const Text('About'),
                 onTap: () {
                   // Add logic for Logout
+                },
+              ),
+              ListTile(
+                title: const Text('Feedback'),
+                onTap: () {
+                  // Add logic for Settings
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => FeedbackForm(),
+                    ),
+                  );
                 },
               ),
               ListTile(
@@ -304,7 +323,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   child: const Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
-                      Icon(Icons.location_on, color: Colors.white),
+                      Icon(Icons.location_on, color: Colors.black),
                       SizedBox(width: 3),
                       Text(
                         'Patna, Bihar',

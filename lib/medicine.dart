@@ -53,97 +53,99 @@ class _ShopState extends State<Shop> {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: CustomAppBar(cartItemCount: cartItemCount),
-        body: Column(
-          children: [
-            SizedBox(height: 5),
-            Center(
-              child: Text(
-                "Order Medicines Now",
-                style: TextStyle(
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold,
+        body: SingleChildScrollView(
+          child: Column(
+            children: [
+              SizedBox(height: 5),
+              Center(
+                child: Text(
+                  "Order Medicines Now",
+                  style: TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
               ),
-            ),
-            SizedBox(
-              height: 10,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                BigContainer(
-                  text: 'Abacavir',
-                  imagePath: 'assets/single_medicine.png',
-                  onAddToCart: () {
-                    setState(() {
-                      cartItemCount++;
-                    });
-                  },
-                ),
-                BigContainer(
-                  text: 'Amoxicillin',
-                  imagePath: 'assets/single_medicine.png',
-                  onAddToCart: () {
-                    setState(() {
-                      cartItemCount++;
-                    });
-                  },
-                ),
-              ],
-            ),
-            SizedBox(
-              height: 10,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                BigContainer(
-                  text: 'Benedryl',
-                  imagePath: 'assets/syrup.png',
-                  onAddToCart: () {
-                    setState(() {
-                      cartItemCount++;
-                    });
-                  },
-                ),
-                BigContainer(
-                  text: 'Paracetamole',
-                  imagePath: 'assets/Medicinebg.png',
-                  onAddToCart: () {
-                    setState(() {
-                      cartItemCount++;
-                    });
-                  },
-                ),
-              ],
-            ),
-            SizedBox(
-              height: 10,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                BigContainer(
-                  text: 'Digene Tablets',
-                  imagePath: 'assets/Medicinebg.png',
-                  onAddToCart: () {
-                    setState(() {
-                      cartItemCount++;
-                    });
-                  },
-                ),
-                BigContainer(
-                  text: 'Vicks',
-                  imagePath: 'assets/vicks.png',
-                  onAddToCart: () {
-                    setState(() {
-                      cartItemCount++;
-                    });
-                  },
-                ),
-              ],
-            ),
-          ],
+              SizedBox(
+                height: 10,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  BigContainer(
+                    text: 'Abacavir',
+                    imagePath: 'assets/single_medicine.png',
+                    onAddToCart: () {
+                      setState(() {
+                        cartItemCount++;
+                      });
+                    },
+                  ),
+                  BigContainer(
+                    text: 'Amoxicillin',
+                    imagePath: 'assets/single_medicine.png',
+                    onAddToCart: () {
+                      setState(() {
+                        cartItemCount++;
+                      });
+                    },
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  BigContainer(
+                    text: 'Benedryl',
+                    imagePath: 'assets/syrup.png',
+                    onAddToCart: () {
+                      setState(() {
+                        cartItemCount++;
+                      });
+                    },
+                  ),
+                  BigContainer(
+                    text: 'Paracetamole',
+                    imagePath: 'assets/Medicinebg.png',
+                    onAddToCart: () {
+                      setState(() {
+                        cartItemCount++;
+                      });
+                    },
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  BigContainer(
+                    text: 'Digene Tablets',
+                    imagePath: 'assets/Medicinebg.png',
+                    onAddToCart: () {
+                      setState(() {
+                        cartItemCount++;
+                      });
+                    },
+                  ),
+                  BigContainer(
+                    text: 'Vicks',
+                    imagePath: 'assets/vicks.png',
+                    onAddToCart: () {
+                      setState(() {
+                        cartItemCount++;
+                      });
+                    },
+                  ),
+                ],
+              ),
+            ],
+          ),
         ),
         bottomNavigationBar: BottomNavigationBar(
           type: BottomNavigationBarType.fixed,

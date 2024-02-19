@@ -36,7 +36,7 @@ class _MainScreenState extends State<MainScreen> {
   }
 
   void startTimer() {
-    Timer.periodic(Duration(seconds: 5), (timer) {
+    Timer.periodic(Duration(seconds: 2), (timer) {
       setState(() {
         histogramData = List.generate(3, (index) => Random().nextInt(500));
       });

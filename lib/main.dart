@@ -1,5 +1,5 @@
-//import 'package:WeCare/getstarted.dart';
-import 'package:WeCare/homeScreen.dart';
+import 'package:WeCare/getstarted.dart';
+//import 'package:WeCare/homeScreen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -16,6 +16,6 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(debugShowCheckedModeBanner: false, home: HomeScreen());
+    return MaterialApp(debugShowCheckedModeBanner: false, home: Start());
   }
 }
