@@ -1,6 +1,7 @@
 import 'package:WeCare/document.dart';
 import 'package:WeCare/feedback.dart';
 import 'package:WeCare/mybot.dart';
+import 'package:WeCare/payment/supportPayment.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
 import 'dart:convert';
@@ -106,11 +107,11 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   // Toggle between light and dark mode
-  void _toggleThemeMode() {
-    setState(() {
-      _isDarkMode = !_isDarkMode;
-    });
-  }
+  // void _toggleThemeMode() {
+  //   setState(() {
+  //     _isDarkMode = !_isDarkMode;
+  //   });
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -192,7 +193,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             icon: const Icon(Icons.brightness_4),
                             onPressed: () {
                               // Toggle between light and dark themes
-                              _toggleThemeMode();
+                              //  _toggleThemeMode();
                             },
                           ),
                         ],
@@ -241,6 +242,12 @@ class _MyHomePageState extends State<MyHomePage> {
                 title: const Text('Support'),
                 onTap: () {
                   // Add logic for Logout
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => Payment(),
+                    ),
+                  );
                 },
               ),
               ListTile(
