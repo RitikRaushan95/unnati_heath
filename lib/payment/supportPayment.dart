@@ -1,3 +1,4 @@
+import 'package:WeCare/Welcome.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -52,6 +53,15 @@ class _MyFormState extends State<MyForm> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Payment Form'),
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back), // Add the logout icon
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => WelcomeUser()),
+            );
+          },
+        ),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),

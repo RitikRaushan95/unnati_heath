@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:mailer/mailer.dart';
+import 'package:mailer/smtp_server.dart';
 
 void main() {
   runApp(Feedback());
@@ -35,7 +37,7 @@ class _FeedbackFormState extends State<FeedbackForm> {
       appBar: AppBar(
         title: Text('WeCare'),
         leading: IconButton(
-          icon: Icon(Icons.arrow_back, color: Colors.green),
+          icon: Icon(Icons.arrow_back, color: Colors.black),
           onPressed: () {
             Navigator.pop(context);
           },
@@ -231,24 +233,29 @@ class _FeedbackFormState extends State<FeedbackForm> {
   }
 
   void sendEmail() async {
-    final String senderEmail = 'ritikraushan9534@gmail.com'; // Sender's email
-    final String subject = 'Feedback Form Submission';
-    final String body = '''
-    Name: ${_nameController.text}
-    Email: ${_emailController.text.replaceAll('+', '')}
-    Phone: ${_phoneController.text}
-    Role: $_selectedRole
-    Suggestion: ${_suggestionController.text}
+    final String username = 'your_email@gmail.com'; // Your email address
+    final String password = 'plpualoxlulhoaul'; // Your email password
+    final String recipientEmail =
+        'recipient@example.com'; // Recipient's email address
+
+    final smtpServer = gmail(username, password);
+
+    final message = Message()
+      ..from = Address(username)
+      ..recipients.add(recipientEmail)
+      ..subject = 'Feedback Form Submission'
+      ..text = '''
+Name: ${_nameController.text}
+Email: ${_emailController.text.replaceAll('+', '')}
+Phone: ${_phoneController.text}
+Role: $_selectedRole
+Suggestion: ${_suggestionController.text}
 ''';
 
-    final Uri emailLaunchUri = Uri(
-      scheme: 'mailto',
-      path: senderEmail, // Use sender's email as the path
-      queryParameters: {'subject': subject, 'body': body},
-    );
-
     try {
-      await launch(emailLaunchUri.toString());
+      final sendReport = await send(message, smtpServer);
+      print('Message sent: ' + sendReport.toString());
+
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text('Feedback submitted successfully!'),
@@ -269,7 +276,7 @@ class _FeedbackFormState extends State<FeedbackForm> {
         curve: Curves.easeInOut,
       );
     } catch (error) {
-      print(error.toString());
+      print('Error sending email: $error');
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text('Error submitting feedback. Please try again.'),
