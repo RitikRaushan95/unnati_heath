@@ -231,7 +231,7 @@ class _FeedbackFormState extends State<FeedbackForm> {
   void sendEmail() async {
     final String username = 'ritikraushan9534@gmail.com';
     final String password = 'plpualoxlulhoaul';
-    final String recipientEmail = 'recipient@example.com';
+    final String recipientEmail = _emailController.text;
 
     final smtpServer = gmail(username, password);
 
@@ -240,6 +240,7 @@ class _FeedbackFormState extends State<FeedbackForm> {
       ..recipients.add(recipientEmail)
       ..subject = 'Feedback Form Submission'
       ..text = '''
+Thankyou for your feedback. Here is your reponse what we got.
 Name: ${_nameController.text}
 Email: ${_emailController.text.replaceAll('+', '')}
 Phone: ${_phoneController.text}
