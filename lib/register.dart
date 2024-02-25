@@ -145,7 +145,9 @@ class _SignupPageState extends State<SignupPage> {
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    _handleRegistration();
+                  },
                   child: Padding(
                     padding: EdgeInsets.all(8),
                     child: Text(
@@ -186,6 +188,35 @@ class _SignupPageState extends State<SignupPage> {
           ),
           const SizedBox(height: 20),
         ],
+      ),
+    );
+  }
+
+  void _handleRegistration() {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text("Successfully Registered"),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.pop(context);
+                _navigateToOtherPage();
+              },
+              child: Text("OK"),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+  void _navigateToOtherPage() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => LoginUi(),
       ),
     );
   }
