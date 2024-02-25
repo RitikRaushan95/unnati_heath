@@ -240,7 +240,7 @@ class _FeedbackFormState extends State<FeedbackForm> {
       ..recipients.add(recipientEmail)
       ..subject = 'Feedback Form Submission'
       ..text = '''
-Thankyou for your feedback. Here is your reponse what we got.
+Thank you for your feedback. Here is your response:
 Name: ${_nameController.text}
 Email: ${_emailController.text.replaceAll('+', '')}
 Phone: ${_phoneController.text}
@@ -252,11 +252,7 @@ Suggestion: ${_suggestionController.text}
       final sendReport = await send(message, smtpServer);
       print('Message sent: ' + sendReport.toString());
 
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text('Feedback submitted successfully!'),
-        ),
-      );
+      _showNotificationDialog('Feedback submitted successfully!');
 
       _nameController.clear();
       _emailController.clear();
@@ -270,11 +266,27 @@ Suggestion: ${_suggestionController.text}
       );
     } catch (error) {
       print('Error sending email: $error');
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text('Error submitting feedback. Please try again.'),
-        ),
-      );
+      _showNotificationDialog('Error submitting feedback. Please try again.');
     }
+  }
+
+  void _showNotificationDialog(String message) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text('Notification'),
+          content: Text(message),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: Text('OK'),
+            ),
+          ],
+        );
+      },
+    );
   }
 }
