@@ -1,3 +1,4 @@
+import 'package:WeCare/appointment.dart';
 import 'package:WeCare/document.dart';
 import 'package:WeCare/feedback.dart';
 import 'package:WeCare/mybot.dart';
@@ -151,9 +152,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   Icons.notifications,
                   color: Colors.black,
                 ),
-                onPressed: () {
-                  // Add  notification logic here
-                },
+                onPressed: () {},
               ),
             ],
           ),
@@ -176,7 +175,6 @@ class _MyHomePageState extends State<MyHomePage> {
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [],
                       ),
-                      //const SizedBox(height: 5),
                       Row(
                         children: [
                           const Icon(Icons.person),
@@ -204,20 +202,15 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
               ListTile(
                 title: const Text('My Account'),
-                onTap: () {
-                  // Add logic for My Account
-                },
+                onTap: () {},
               ),
               ListTile(
                 title: const Text('Settings'),
-                onTap: () {
-                  // Add logic for Settings
-                },
+                onTap: () {},
               ),
               ListTile(
                 title: const Text('Records'),
                 onTap: () {
-                  // Add logic for Settings
                   Navigator.push(
                     context,
                     MaterialPageRoute(
@@ -229,19 +222,21 @@ class _MyHomePageState extends State<MyHomePage> {
               ListTile(
                 title: const Text('Appointments'),
                 onTap: () {
-                  // Add logic for Logout
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => Appointment(),
+                    ),
+                  );
                 },
               ),
               ListTile(
                 title: const Text('Community Collab'),
-                onTap: () {
-                  // Add logic for My Account
-                },
+                onTap: () {},
               ),
               ListTile(
                 title: const Text('Support'),
                 onTap: () {
-                  // Add logic for Logout
                   Navigator.push(
                     context,
                     MaterialPageRoute(
@@ -252,20 +247,15 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
               ListTile(
                 title: const Text('Funds'),
-                onTap: () {
-                  // Add logic for Logout
-                },
+                onTap: () {},
               ),
               ListTile(
                 title: const Text('About'),
-                onTap: () {
-                  // Add logic for Logout
-                },
+                onTap: () {},
               ),
               ListTile(
                 title: const Text('Feedback'),
                 onTap: () {
-                  // Add logic for Settings
                   Navigator.push(
                     context,
                     MaterialPageRoute(
@@ -277,7 +267,6 @@ class _MyHomePageState extends State<MyHomePage> {
               ListTile(
                 title: const Text('Logout'),
                 onTap: () {
-                  // Show a pop-up notification
                   showDialog(
                     context: context,
                     builder: (BuildContext context) {
@@ -415,9 +404,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             fontSize: 20, fontWeight: FontWeight.w500),
                       ),
                       GestureDetector(
-                        onTap: () {
-                          // Add  logic for "Show All" here
-                        },
+                        onTap: () {},
                         child: const Text(
                           'Show All',
                           style: TextStyle(
@@ -437,7 +424,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     _buildBox('assets/cart.png', 'Stores'),
                   ],
                 ),
-                const SizedBox(height: 16),
+                const SizedBox(height: 10),
                 Padding(
                   padding: EdgeInsets.all(10),
                   child: Text(
@@ -472,7 +459,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     ],
                   ),
                 ),
-                const SizedBox(height: 16),
+                const SizedBox(height: 8),
                 Padding(
                   padding: EdgeInsets.all(25),
                   child: Text(

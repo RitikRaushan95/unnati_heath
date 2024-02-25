@@ -1,13 +1,10 @@
 import 'package:WeCare/Welcome.dart';
 import 'package:WeCare/graph.dart';
-//import 'package:WeCare/welcome_user.dart';
 import 'package:flutter/material.dart';
 import 'package:WeCare/getstarted.dart';
 import 'package:WeCare/loginui.dart';
 import 'package:WeCare/mybot.dart';
 import 'package:WeCare/register.dart';
-
-//import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {
   HomeScreen({Key? key});

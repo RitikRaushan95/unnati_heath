@@ -14,7 +14,7 @@ class LoginUi extends StatefulWidget {
 class _LoginUiState extends State<LoginUi> {
   bool rememberMe = false;
   bool obscureText = true;
-  String selectedRole = 'Select Role'; // Default selected role
+  String selectedRole = 'Select Role';
 
   @override
   Widget build(BuildContext context) {
@@ -54,7 +54,6 @@ class _LoginUiState extends State<LoginUi> {
                   ),
                 ),
                 const SizedBox(height: 10),
-                // Username textfield
                 Container(
                   decoration: BoxDecoration(
                     color: const Color(0xFFF1F1F1),
@@ -63,7 +62,6 @@ class _LoginUiState extends State<LoginUi> {
                   child: Padding(
                     padding: EdgeInsets.symmetric(horizontal: 15),
                     child: TextFormField(
-                      // controller: email,
                       decoration: const InputDecoration(
                         border: InputBorder.none,
                         hintText: 'Username',
@@ -72,7 +70,6 @@ class _LoginUiState extends State<LoginUi> {
                   ),
                 ),
                 const SizedBox(height: 20),
-                // Password textfield
                 Container(
                   decoration: BoxDecoration(
                     color: const Color(0xFFF1F1F1),
@@ -108,8 +105,6 @@ class _LoginUiState extends State<LoginUi> {
                   ),
                 ),
                 const SizedBox(height: 10),
-
-                // Dropdown menu for selecting role
                 Container(
                   decoration: BoxDecoration(
                     color: const Color(0xFFF1F1F1),
@@ -145,9 +140,7 @@ class _LoginUiState extends State<LoginUi> {
                     ),
                   ),
                 ),
-
                 const SizedBox(height: 20),
-
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -168,9 +161,7 @@ class _LoginUiState extends State<LoginUi> {
                       ],
                     ),
                     TextButton(
-                      onPressed: () {
-                        // Handle forgot password action
-                      },
+                      onPressed: () {},
                       child: const Text(
                         "Forgot Password?",
                         style: TextStyle(
@@ -181,7 +172,6 @@ class _LoginUiState extends State<LoginUi> {
                   ],
                 ),
                 const SizedBox(height: 20),
-
                 Row(
                   children: [
                     Expanded(
@@ -191,7 +181,6 @@ class _LoginUiState extends State<LoginUi> {
                           borderRadius: BorderRadius.circular(10),
                         ),
                         onPressed: () {
-                          // Check the selected role and navigate accordingly
                           if (selectedRole == 'Doctor') {
                             Navigator.push(
                               context,
@@ -243,8 +232,6 @@ class _LoginUiState extends State<LoginUi> {
                   ],
                 ),
                 const SizedBox(height: 10),
-
-                // "or" text
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -267,18 +254,13 @@ class _LoginUiState extends State<LoginUi> {
                   ],
                 ),
                 const SizedBox(height: 10),
-
-                // Sign in with Google button
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     ElevatedButton.icon(
-                      onPressed: () {
-                        // Handle Sign in with Google action
-                      },
+                      onPressed: () {},
                       icon: Icon(
-                        Icons
-                            .g_translate, // Replace with the actual Google icon
+                        Icons.g_translate,
                         color: Colors.white,
                       ),
                       label: Text(
@@ -297,8 +279,6 @@ class _LoginUiState extends State<LoginUi> {
                     ),
                   ],
                 ),
-
-                // Register button
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-//import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 void main() {
   runApp(Hospital());
@@ -21,7 +20,6 @@ class HospitalHomePage extends StatefulWidget {
 }
 
 class _HospitalHomePageState extends State<HospitalHomePage> {
-  // GoogleMapController? _mapController;
   TextEditingController _searchController = TextEditingController();
 
   @override
@@ -80,7 +78,6 @@ class _HospitalHomePageState extends State<HospitalHomePage> {
           ),
         ],
       ),
-      // body: _buildMap(),
     );
   }
 }

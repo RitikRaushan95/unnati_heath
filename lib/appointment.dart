@@ -12,13 +12,10 @@ class Appointment extends StatefulWidget {
 
 class _AppointmentState extends State<Appointment> {
   String _selectedText = '';
-
-  // Track the checklist items
   bool _isParacetamolChecked = false;
   bool _isDigeneTabletsChecked = false;
   bool _isAnotherItemChecked = false;
 
-  // Build a checklist item widget
   Widget _buildChecklistItem(
       String itemName, bool isChecked, ValueChanged<bool?>? onChanged) {
     return Row(
@@ -32,8 +29,7 @@ class _AppointmentState extends State<Appointment> {
           visualDensity: VisualDensity.compact,
           shape: CircleBorder(),
           checkColor: Color.fromARGB(255, 112, 238, 119),
-          activeColor: Color.fromARGB(255, 112, 238,
-              119), // Change the color of the checkbox when selected
+          activeColor: Color.fromARGB(255, 112, 238, 119),
         ),
       ],
     );
@@ -49,8 +45,7 @@ class _AppointmentState extends State<Appointment> {
           backgroundColor: Color.fromARGB(255, 112, 238, 119),
         ),
         bottomNavigationBarTheme: BottomNavigationBarThemeData(
-          backgroundColor:
-              Colors.white, // Set bottom navigation bar color to white
+          backgroundColor: Colors.white,
         ),
       ),
       home: Scaffold(
@@ -325,12 +320,12 @@ class _AppointmentState extends State<Appointment> {
                 'Book Appointment',
                 style: TextStyle(
                   color: Colors.black,
-                  fontSize: 18,
+                  fontSize: 15,
                 ),
               ),
               style: ElevatedButton.styleFrom(
                 backgroundColor: Color.fromARGB(255, 112, 238, 119),
-                padding: EdgeInsets.symmetric(vertical: 15),
+                padding: EdgeInsets.symmetric(vertical: 10),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(10),
                 ),

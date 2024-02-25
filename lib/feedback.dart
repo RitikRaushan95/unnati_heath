@@ -52,7 +52,7 @@ class _FeedbackFormState extends State<FeedbackForm> {
             child: Container(
               constraints: BoxConstraints(
                 maxWidth: 500.0,
-                maxHeight: 600.0, // Decreased container height
+                maxHeight: 600.0,
               ),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10.0),
@@ -88,7 +88,7 @@ class _FeedbackFormState extends State<FeedbackForm> {
                               )),
                         ],
                       ),
-                      SizedBox(height: 8.0), // Decreased spacing
+                      SizedBox(height: 8.0),
                       TextFormField(
                         controller: _nameController,
                         decoration: InputDecoration(
@@ -102,7 +102,7 @@ class _FeedbackFormState extends State<FeedbackForm> {
                           return null;
                         },
                       ),
-                      SizedBox(height: 8.0), // Decreased spacing
+                      SizedBox(height: 8.0),
                       TextFormField(
                         controller: _emailController,
                         decoration: InputDecoration(
@@ -118,7 +118,7 @@ class _FeedbackFormState extends State<FeedbackForm> {
                           return null;
                         },
                       ),
-                      SizedBox(height: 8.0), // Decreased spacing
+                      SizedBox(height: 8.0),
                       TextFormField(
                         controller: _phoneController,
                         decoration: InputDecoration(
@@ -132,7 +132,7 @@ class _FeedbackFormState extends State<FeedbackForm> {
                           return null;
                         },
                       ),
-                      SizedBox(height: 8.0), // Decreased spacing
+                      SizedBox(height: 8.0),
                       Row(
                         children: [
                           Icon(Icons.sentiment_very_satisfied,
@@ -165,7 +165,7 @@ class _FeedbackFormState extends State<FeedbackForm> {
                           ),
                         ],
                       ),
-                      SizedBox(height: 8.0), // Decreased spacing
+                      SizedBox(height: 8.0),
                       Row(
                         children: [
                           Icon(Icons.chat, color: Colors.green),
@@ -178,18 +178,16 @@ class _FeedbackFormState extends State<FeedbackForm> {
                       TextFormField(
                         controller: _suggestionController,
                         maxLines: 4,
-                        style: TextStyle(fontSize: 12.0), // Decreased font size
+                        style: TextStyle(fontSize: 12.0),
                         decoration: InputDecoration(
                           hintText: 'Type here...',
                           contentPadding: EdgeInsets.symmetric(
-                              vertical: 15.0,
-                              horizontal: 10.0), // Adjust padding
+                              vertical: 15.0, horizontal: 10.0),
                           border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(
-                                8.0), // Decreased border radius
+                            borderRadius: BorderRadius.circular(8.0),
                             borderSide: BorderSide(
-                              color: Colors.green, // Border color
-                              width: 1.0, // Decreased border width
+                              color: Colors.green,
+                              width: 1.0,
                             ),
                           ),
                         ),
@@ -200,12 +198,10 @@ class _FeedbackFormState extends State<FeedbackForm> {
                           return null;
                         },
                       ),
-                      SizedBox(
-                          height: 16.0), // Increased spacing before the button
+                      SizedBox(height: 16.0),
                       ElevatedButton(
                         onPressed: () {
                           if (_formKey.currentState!.validate()) {
-                            // Form is valid, send email
                             sendEmail();
                           }
                         },
@@ -233,10 +229,9 @@ class _FeedbackFormState extends State<FeedbackForm> {
   }
 
   void sendEmail() async {
-    final String username = 'your_email@gmail.com'; // Your email address
-    final String password = 'plpualoxlulhoaul'; // Your email password
-    final String recipientEmail =
-        'recipient@example.com'; // Recipient's email address
+    final String username = 'ritikraushan9534@gmail.com';
+    final String password = 'plpualoxlulhoaul';
+    final String recipientEmail = 'recipient@example.com';
 
     final smtpServer = gmail(username, password);
 
@@ -262,14 +257,11 @@ Suggestion: ${_suggestionController.text}
         ),
       );
 
-      // Clear form fields after successful submission
       _nameController.clear();
       _emailController.clear();
       _phoneController.clear();
       _selectedRole = 'Select';
       _suggestionController.clear();
-
-      // Scroll to the top after submitting
       _scrollController.animateTo(
         0.0,
         duration: Duration(milliseconds: 500),

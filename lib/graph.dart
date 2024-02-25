@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:math';
+import 'package:WeCare/medicine.dart';
 import 'package:flutter/material.dart';
 import 'package:fl_chart/fl_chart.dart';
 
@@ -60,12 +61,47 @@ class _LineChartSampleState extends State<LineChartSample> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Consuming rate of Medicine'),
+        backgroundColor: Colors.green,
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back_ios, color: Colors.black),
+          onPressed: () {
+            Navigator.pushReplacement(
+                context, MaterialPageRoute(builder: (context) => Shop()));
+          },
+        ),
+        title: Text(
+          'Consuming rate of Medicine',
+          style: TextStyle(color: Colors.black),
+        ),
       ),
       body: Padding(
         padding: EdgeInsets.all(16.0),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            Text(
+              'Commonly used medicine',
+              style: TextStyle(
+                fontSize: 18,
+              ),
+            ),
+            SizedBox(height: 8),
+            Row(
+              children: [
+                Container(
+                  width: 10,
+                  height: 10,
+                  color: Colors.black,
+                  margin: EdgeInsets.only(right: 8),
+                ),
+                Text(
+                  'Paracetamole, Dolo',
+                  style: TextStyle(
+                    fontSize: 16,
+                  ),
+                ),
+              ],
+            ),
             Expanded(
               child: Center(
                 child: Container(
@@ -74,7 +110,7 @@ class _LineChartSampleState extends State<LineChartSample> {
                   child: LineChart(
                     LineChartData(
                       minX: 0,
-                      maxX: 12, // Range from 0 to 12 for 12 divisions
+                      maxX: 12,
                       minY: 0,
                       maxY: 15,
                       titlesData: FlTitlesData(
@@ -186,6 +222,14 @@ class _LineChartSampleState extends State<LineChartSample> {
                   ),
                 ),
               ),
+            ),
+            SizedBox(height: 16),
+            Text(
+              'X-axis = Month\nY-axis = Number of tablets in K',
+              style: TextStyle(
+                fontSize: 16,
+              ),
+              textAlign: TextAlign.left,
             ),
           ],
         ),

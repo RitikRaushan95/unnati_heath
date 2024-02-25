@@ -54,7 +54,7 @@ class _MyFormState extends State<MyForm> {
       appBar: AppBar(
         title: Text('Payment Form'),
         leading: IconButton(
-          icon: Icon(Icons.arrow_back), // Add the logout icon
+          icon: Icon(Icons.arrow_back),
           onPressed: () {
             Navigator.push(
               context,

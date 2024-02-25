@@ -1,4 +1,5 @@
 import 'package:WeCare/Welcome.dart';
+import 'package:WeCare/document.dart';
 import 'package:WeCare/medicine.dart';
 import 'package:WeCare/mybot.dart';
 import 'package:flutter/material.dart';
@@ -15,7 +16,7 @@ class Availability extends StatefulWidget {
 }
 
 class _AvailabilityState extends State<Availability> {
-  int _selectedIndex = 1; // Set the doctor icon as default
+  int _selectedIndex = 1;
 
   void _onItemTapped(int index) {
     setState(() {
@@ -56,8 +57,10 @@ class _AvailabilityState extends State<Availability> {
         );
         break;
       case 4:
-        // Doc icon clicked
-        // Add your navigation logic here
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => Doc()),
+        );
         break;
     }
   }

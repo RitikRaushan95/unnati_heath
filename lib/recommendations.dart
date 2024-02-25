@@ -147,15 +147,11 @@ class _RecomendState extends State<Recomend> {
                             children: [
                               IconButton(
                                 icon: Icon(Icons.filter_list),
-                                onPressed: () {
-                                  // Add your filter action here
-                                },
+                                onPressed: () {},
                               ),
                               IconButton(
                                 icon: Icon(Icons.search),
-                                onPressed: () {
-                                  // Add your search action here
-                                },
+                                onPressed: () {},
                               ),
                             ],
                           ),
@@ -273,7 +269,7 @@ class _RecomendState extends State<Recomend> {
   Widget _buildRecommendationItem(String name, String imagePath, int rating) {
     return Row(
       children: [
-        SizedBox(width: 20),
+        SizedBox(width: 10),
         Container(
           width: 40,
           height: 60,

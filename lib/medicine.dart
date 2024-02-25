@@ -1,4 +1,5 @@
 import 'package:WeCare/Welcome.dart';
+import 'package:WeCare/graph.dart';
 import 'package:WeCare/mybot.dart';
 import 'package:WeCare/recommendations.dart';
 import 'package:flutter/material.dart';
@@ -215,9 +216,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                 children: [
                   IconButton(
                     icon: Icon(Icons.shopping_cart),
-                    onPressed: () {
-                      // Add your cart button functionality here
-                    },
+                    onPressed: () {},
                   ),
                   Positioned(
                     right: 0,
@@ -237,11 +236,12 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                   ),
                 ],
               ),
-              SizedBox(width: 10), // Add space between icons
+              SizedBox(width: 10),
               IconButton(
-                icon: Icon(Icons.filter_list),
+                icon: Icon(Icons.show_chart),
                 onPressed: () {
-                  // Add your filter button functionality here
+                  Navigator.pushReplacement(context,
+                      MaterialPageRoute(builder: (context) => LineGraph()));
                 },
               ),
             ],
@@ -264,9 +264,8 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                   ),
                   child: TextField(
                     decoration: InputDecoration(
-                      contentPadding: EdgeInsets.all(
-                          10.0), // Add padding inside the TextField
-                      border: InputBorder.none, // Hide default border
+                      contentPadding: EdgeInsets.all(10.0),
+                      border: InputBorder.none,
                       prefixIcon: Icon(Icons.search),
                       hintText: 'Search',
                     ),
@@ -281,8 +280,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   }
 
   @override
-  Size get preferredSize =>
-      Size.fromHeight(kToolbarHeight + 60.0); // Adjust the height of the AppBar
+  Size get preferredSize => Size.fromHeight(kToolbarHeight + 60.0);
 }
 
 class BigContainer extends StatelessWidget {
@@ -296,7 +294,7 @@ class BigContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: MediaQuery.of(context).size.width * 0.3,
-      padding: EdgeInsets.all(10.0), // Decrease padding
+      padding: EdgeInsets.all(10.0),
       decoration: BoxDecoration(
         color: Colors.green,
         borderRadius: BorderRadius.circular(8.0),
@@ -307,32 +305,28 @@ class BigContainer extends StatelessWidget {
         children: [
           Text(
             text,
-            style: TextStyle(
-                fontSize: 12,
-                fontWeight: FontWeight.bold), // Decrease font size
+            style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold),
           ),
-          SizedBox(height: 5), // Adjusted height
+          SizedBox(height: 5),
           Image.asset(
             imagePath,
             height: 50,
             width: 50,
           ),
-          SizedBox(height: 5), // Adjusted height
+          SizedBox(height: 5),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text('\$ 4.0',
-                  style: TextStyle(fontSize: 10)), // Decrease font size
+              Text('\$ 4.0', style: TextStyle(fontSize: 10)),
               GestureDetector(
                 onTap: onAddToCart,
                 child: Container(
-                  padding: EdgeInsets.all(5.0), // Decrease padding
+                  padding: EdgeInsets.all(5.0),
                   decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(10.0),
                   ),
-                  child: Icon(Icons.add,
-                      color: Colors.green, size: 20), // Adjusted size
+                  child: Icon(Icons.add, color: Colors.green, size: 20),
                 ),
               ),
             ],

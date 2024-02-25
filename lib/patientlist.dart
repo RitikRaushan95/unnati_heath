@@ -34,7 +34,7 @@ class _MainScreenState extends State<MainScreen> {
         child: AppBar(
           backgroundColor: Colors.green,
           leading: IconButton(
-            icon: Icon(Icons.logout), // Add the logout icon
+            icon: Icon(Icons.logout),
             onPressed: () {
               Navigator.push(
                 context,

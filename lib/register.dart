@@ -34,9 +34,7 @@ class _SignupPageState extends State<SignupPage> {
           Padding(
             padding: EdgeInsets.only(right: 16.0),
             child: GestureDetector(
-              onTap: () {
-                // Handle login action here
-              },
+              onTap: () {},
               child: const Text(
                 "Login",
                 style: TextStyle(
@@ -147,10 +145,7 @@ class _SignupPageState extends State<SignupPage> {
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),
-                  onPressed: () {
-                    //call register function here
-                    // register(context);
-                  },
+                  onPressed: () {},
                   child: Padding(
                     padding: EdgeInsets.all(8),
                     child: Text(

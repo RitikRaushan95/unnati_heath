@@ -1,6 +1,5 @@
 import 'dart:async';
 import 'dart:math';
-
 import 'package:WeCare/patientlist.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -165,7 +164,7 @@ class _MainScreenState extends State<MainScreen> {
                     Container(
                       width: 15,
                       height: 15,
-                      color: Colors.indigo[900], // Choose the color you want
+                      color: Colors.indigo[900],
                     ),
                     SizedBox(width: 5.0),
                     Text(
@@ -178,7 +177,7 @@ class _MainScreenState extends State<MainScreen> {
                     Container(
                       width: 15,
                       height: 15,
-                      color: Colors.orange[700], // Choose the color you want
+                      color: Colors.orange[700],
                     ),
                     SizedBox(width: 5.0),
                     Text(
@@ -308,7 +307,6 @@ class _MainScreenState extends State<MainScreen> {
     setState(() {
       _selectedIndex = index;
       if (index == 0) {
-        // Replace DocPro with the appropriate class for the Patients screen
         Navigator.push(
           context,
           MaterialPageRoute(builder: (context) => DocPro()),

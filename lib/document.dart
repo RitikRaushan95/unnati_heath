@@ -88,15 +88,11 @@ class _DocState extends State<Doc> {
               textAlign: TextAlign.start,
             ),
           ),
+          _buildCertificateRow(Icons.favorite, "ECG Report", "  Download"),
           _buildCertificateRow(
-              Icons.favorite, "ECG Report", "            Download"),
-          _buildCertificateRow(
-              Icons.bug_report, "Covid 19 Report", "    Download"),
+              Icons.bug_report, "Covid 19 Report", " Download"),
           _buildCertificateRow(
               Icons.scatter_plot, "Stress Test Report", "Download"),
-          // Add more rows as needed with different text formats
-
-          // Add the new container with the border and "+" icon
           SizedBox(height: 200.0),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20.0),
@@ -166,7 +162,6 @@ class _DocState extends State<Doc> {
           SizedBox(width: 30.0),
           if (action != null)
             Text(action, style: TextStyle(fontSize: 18.0, color: Colors.green)),
-          //SizedBox(width: 50.0),
         ],
       ),
     );
